@@ -5,4 +5,7 @@ class GameAPI:
         pass
 
     def get_access_token(self):
-        return DBGameAPI().get_access_token()
+        resonse = DBGameAPI().get_access_token()
+        data = resonse.json()
+        access_token = data['access_token']
+        return access_token
