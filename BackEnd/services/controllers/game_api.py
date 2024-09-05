@@ -8,3 +8,4 @@ class GameAPI:
         data = DBGameAPI().get_access_token()
         access_token = data['access_token']
         return access_token
+    

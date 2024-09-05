@@ -21,3 +21,5 @@ class DBGameAPI:
             'grant_type': self.GRANT_TYPE
         })
         return response.json()
+    
+    #CRUDs do bd
