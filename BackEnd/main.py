@@ -1,11 +1,16 @@
 from flask import Flask
-from services.controllers.game_api import GameAPI
+
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return GameAPI().get_access_token()
+#importando e registrando as rotas
+from api.games import games_routes
+from api.records import records_routes
+from api.user import user_routes
+
+app.register_blueprint(games_routes)
+app.register_blueprint(records_routes)
+app.register_blueprint(user_routes)
 
 if __name__ == '__main__':
     app.run()
