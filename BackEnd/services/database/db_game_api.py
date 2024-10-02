@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import requests
 import os
+import time
 
 class DBGameAPI:
     def __init__(self):
@@ -28,6 +29,44 @@ class DBGameAPI:
         'Client-ID': self.IGDB_CLIENT_ID,
         'Authorization': f'Bearer {access_token}',
         }
-        data = 'fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,collections,cover,created_at,dlcs,expanded_games,expansions,external_games,first_release_date,follows,forks,franchise,franchises,game_engines,game_localizations,game_modes,genres,hypes,involved_companies,keywords,language_supports,multiplayer_modes,name,parent_game,platforms,player_perspectives,ports,rating,rating_count,release_dates,remakes,remasters,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;'
+        data = 'fields *, cover.url; search "witcher"; limit 1;'
         response =  requests.post(url,headers=headers,data=data)
         return response.json()
+    
+    def get_card(self, access_token:str):
+        dic = {}
+        url =  "https://api.igdb.com/v4/games"
+        headers = {
+        'Client-ID': self.IGDB_CLIENT_ID,
+        'Authorization': f'Bearer {access_token}',
+        'Accept': 'application/json'
+        }
+        data = 'fields id, name, cover.*, *, release_dates.*, screenshots.*; search "minecraft"; limit 1;'
+        response =  requests.post(url,headers=headers,data=data)
+        game_data = response.json()
+        p_jogo = game_data[0]
+        dic.update({"capa": p_jogo['cover']['url']})
+        dic.update({"nome": p_jogo['name']})
+        dic.update({"descricao": p_jogo['summary']})
+        dic.update({"criado_em": time.strftime("%Y", time.gmtime(p_jogo['first_release_date']))})
+        
+        return dic
+
+    # def post_card(self, access_token:str):
+    #     url =  "https://api.igdb.com/v4/games"
+    #     headers = {
+    #     'Client-ID': self.IGDB_CLIENT_ID,
+    #     'Authorization': f'Bearer {access_token}',
+    #     'Accept': 'application/json'
+    #     }
+    #     dic = {}
+    #     data = 'fields id, name, cover.*, *, release_dates.*, screenshots.*; search "minecraft"; limit 1;'
+    #     response =  requests.post(url,headers=headers,data=data)
+    #     game_data = response.json()
+    #     p_jogo = game_data[0]
+    #     dic.update({"capa": p_jogo['cover']['url']})
+    #     dic.update({"nome": p_jogo['name']})
+    #     dic.update({"descricao": p_jogo['summary']})
+    #     dic.update({"criado_em": time.strftime("%Y", time.gmtime(p_jogo['first_release_date']))})
+    #     return dic
+        
