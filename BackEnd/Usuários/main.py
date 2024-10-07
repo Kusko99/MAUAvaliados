@@ -1,9 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
 
-
-import py_hot_reload
-
 app = Flask(__name__)
 CORS(app)
 
@@ -14,6 +11,5 @@ def main():
     app.register_blueprint(users_routes)
 
     if __name__ == '__main__':
-        app.run(port=7000)
+        app.run(port=7000, debug=True)
 
-py_hot_reload.run_with_reloader(main)
