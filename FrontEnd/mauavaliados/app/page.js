@@ -69,7 +69,7 @@ export default function Home() {
           <UserButton
             appearance={{
               elements: {
-                avatarBox: "w-11 h-11",
+                avatarBox: "w-8 h-8",
               },
             }}
           />
@@ -88,12 +88,12 @@ export default function Home() {
                   <TooltipTrigger className="absolute right-1 top-1 group">
                     <MdGames
                       size={"1.7em"}
-                      className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#595959]"
+                      className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#8C00FF]"
                     />
                   </TooltipTrigger>
                   <TooltipContent
                     side="left"
-                    className="drop-shadow-sm bg-[#8C00FF]/70 text-white"
+                    className="drop-shadow-sm bg-[#8C00FF] text-white"
                   >
                     <p>Adicionar à lista</p>
                   </TooltipContent>
