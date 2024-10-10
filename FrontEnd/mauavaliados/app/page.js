@@ -1,4 +1,5 @@
 import { SignedIn, UserButton } from "@clerk/nextjs";
+import { clerkClient, auth, currentUser } from "@clerk/nextjs/server";
 import "./globals.css";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
@@ -15,14 +16,24 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+// async function fetchUserList() {
+//   const response = await clerkClient().users.getUserList();
+//   console.log(response);
+// }
+// fetchUserList();
+
+const userId = "user_2lwjCPAOcKRQHDSgfaAXWCecjZX";
+async function fetchUser(userId) {
+  const response = await clerkClient().users.getUser(userId);
+  console.log(response.emailAddresses);
+}
+fetchUser("user_2lwjCPAOcKRQHDSgfaAXWCecjZX");
+
+// const { userId } = auth()
+// console.log(userId)
+
 export default function Home() {
   return (
-    // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-    //   <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-    //   </main>
-    //   <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
-    // </div>
-    // <main className="min-h-screen bg-[#373737] relative">
     // #8C00FF
     // #FFAE00
     // #E1005E
