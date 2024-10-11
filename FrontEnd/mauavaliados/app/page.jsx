@@ -3,18 +3,17 @@ import { clerkClient, auth, currentUser } from "@clerk/nextjs/server";
 import "./globals.css";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
+import GameCard from "@/components/gameCard";
 import Image from "next/image";
-// import logo from "../public/logo_mauavaliados_img.png";
 import logo from "../public/logo_principal.svg";
 import the_witcher from "../public/the_witcher.png";
-import super_smash from "../public/super_smash.png";
-import { MdGames } from "react-icons/md";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // async function fetchUserList() {
 //   const response = await clerkClient().users.getUserList();
@@ -76,29 +75,25 @@ export default function Home() {
         </Navbar>
         <Image src={the_witcher} className="" />
         <div className="min-w-max">
-          <div className="flex flex-col items-start justify-start h-screen pl-12 pt-12">
-            <h1 className="text-3xl font-bold pb-4">Lançamentos</h1>
-            <div className="flex w-[230px] h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
-              <Image
-                src={super_smash}
-                className="h-auto w-auto object-cover transition-all duration-500 hover:scale-[1.03] rounded-sm"
-              />
-              <TooltipProvider>
-                <Tooltip className="static">
-                  <TooltipTrigger className="absolute right-1 top-1 group">
-                    <MdGames
-                      size={"1.7em"}
-                      className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#8C00FF]"
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent
-                    side="left"
-                    className="drop-shadow-sm bg-[#8C00FF] text-white"
-                  >
-                    <p>Adicionar à lista</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+          <div className="flex flex-col items-start justify-start h-screen pt-12">
+            <h1 className="text-3xl font-bold pb-4 mx-12">Lançamentos</h1>
+            <div className="flex justify-center mx-auto w-full max-w-full">
+              <Carousel className="min-w-full max-w-lg m-0 p-0 flex justify-center ">
+                <CarouselContent className="w-screen z-0">
+                  {Array.from({ length: 20 }).map((_, index) => (
+                    <CarouselItem
+                      key={index}
+                      className=" sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6"
+                    >
+                      <div className="pl-12">
+                        <GameCard className="items-center justify-center" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="z-10 ml-12 h-[346px] w-16 rounded-none border-0 bg-black/40 disabled:hidden" />
+                <CarouselNext className="z-10 mr-12 h-[346px] w-16 rounded-none border-0 bg-black/40 disabled:hidden" />
+              </Carousel>
             </div>
           </div>
         </div>
