@@ -1,0 +1,34 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Python + Node.js</title>
+</head>
+<body>
+    <h1>Processar Dados</h1>
+    <form id="dataForm">
+        <input type="text" id="userData" placeholder="Insira dados aqui">
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        const form = document.getElementById('dataForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userData = document.getElementById('userData').value;
+
+            const response = await fetch('/process-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: userData })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = `Resultado: ${result.result.prediction}`;
+        });
+    </script>
+</body>
+</html>

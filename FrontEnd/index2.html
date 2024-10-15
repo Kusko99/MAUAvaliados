@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir JSON</title>
+</head>
+<body>
+    <div id="conteudo"></div>
+    <div class="imagem"></div>
+
+    <script>
+
+        // Faz a requisição para o servidor Flask
+        fetch('http://127.0.0.1:5000/getcard')
+            .then(response => response.json())
+            .then(data => {
+                // Exibe os dados no HTML
+                console.log(data);
+                const conteudoDiv = document.getElementById('conteudo');
+                conteudoDiv.innerHTML = `
+                    <p>Nome: ${data.nome}</p>
+                `;
+
+            })
+            .catch(error => console.error('Erro:', error));
+    </script>
+</body>
+</html>
