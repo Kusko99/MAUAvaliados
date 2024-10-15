@@ -14,22 +14,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-// async function fetchUserList() {
-//   const response = await clerkClient().users.getUserList();
-//   console.log(response);
-// }
-// fetchUserList();
-
-const userId = "user_2lwjCPAOcKRQHDSgfaAXWCecjZX";
-async function fetchUser(userId) {
-  const response = await clerkClient().users.getUser(userId);
-  console.log(response.emailAddresses);
-}
-fetchUser("user_2lwjCPAOcKRQHDSgfaAXWCecjZX");
-
-// const { userId } = auth()
-// console.log(userId)
+import Carrossel from "@/components/carrossel";
 
 export default function Home() {
   return (
@@ -75,26 +60,9 @@ export default function Home() {
         </Navbar>
         <Image src={the_witcher} className="" />
         <div className="min-w-max">
-          <div className="flex flex-col items-start justify-start h-screen pt-12">
+          <div className="flex flex-col items-start justify-start h-screen -mt-20">
             <h1 className="text-3xl font-bold pb-4 mx-12">Lançamentos</h1>
-            <div className="flex justify-center mx-auto w-full max-w-full">
-              <Carousel className="min-w-full max-w-lg m-0 p-0 flex justify-center ">
-                <CarouselContent className="w-screen z-0">
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <CarouselItem
-                      key={index}
-                      className=" sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6"
-                    >
-                      <div className="pl-12">
-                        <GameCard className="items-center justify-center" />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="z-10 ml-12 h-[346px] w-16 rounded-none border-0 bg-black/40 disabled:hidden" />
-                <CarouselNext className="z-10 mr-12 h-[346px] w-16 rounded-none border-0 bg-black/40 disabled:hidden" />
-              </Carousel>
-            </div>
+            <Carrossel />
           </div>
         </div>
       </SignedIn>
