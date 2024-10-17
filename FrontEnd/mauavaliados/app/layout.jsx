@@ -37,24 +37,6 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body>
           <SignedOut></SignedOut>
-          {/* <SignedIn>
-            <Navbar>
-              <Image src={logo} width={70} height={70} />
-              <div className="flex items-center justify-around w-2/4">
-                <Link href={"/"}>Pesquisar</Link>
-                <Link href={"/"}>Minhas Reviews</Link>
-                <Link href={"/"}>Listas</Link>
-              </div>
-
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "w-11 h-11",
-                  },
-                }}
-              />
-            </Navbar>
-          </SignedIn> */}
           <main className={lato.className}>{children}</main>
         </body>
       </html>
