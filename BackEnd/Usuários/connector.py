@@ -1,4 +1,4 @@
-import mysql.connector
+import pymysql
 from mysql.connector import Error
 from dotenv import load_dotenv
 from pathlib import Path
@@ -16,7 +16,7 @@ db = SQLAlchemy()
 def init_db(app):
     "Função para inicializar o SQLAlchemy"
     app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}"
+        f"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}"
         f"@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DB_USER')}"
     )
     db.init_app(app)
