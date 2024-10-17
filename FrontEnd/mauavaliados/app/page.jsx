@@ -63,6 +63,8 @@ export default function Home() {
           <div className="flex flex-col items-start justify-start h-screen -mt-20">
             <h1 className="text-3xl font-bold pb-4 mx-12">Lançamentos</h1>
             <Carrossel />
+            <h1 className="text-3xl font-bold pb-4 mx-12 mt-12">Em alta</h1>
+            <Carrossel />
           </div>
         </div>
       </SignedIn>

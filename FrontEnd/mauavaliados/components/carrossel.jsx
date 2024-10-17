@@ -25,7 +25,7 @@ function Carrossel() {
           ))}
         </CarouselContent>
         <CarouselPrevious className="z-10 ml-12 h-[346px] w-16 rounded-none border-0 bg-gradient-to-r from-black to-black opacity-40 hover:from-black hover:to-white/20 hover:opacity-90 disabled:hidden" />
-        <CarouselNext className="z-10 mr-12 h-[346px] w-16 rounded-none border-0 bg-gradient-to-l from-black to-black opacity-40 hover:from-black hover:to-white/20 hover:opacity-90 disabled:hidden" />
+        <CarouselNext className="z-10 mr-12 h-[346px] w-16 rounded-none border-0 hover:from-black hover:to-white/20 hover:opacity-90 disabled:hidden hover:transition" />
       </Carousel>
     </div>
   );
