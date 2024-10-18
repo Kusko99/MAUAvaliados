@@ -4,9 +4,29 @@ import Link from "next/link";
 
 const { userId } = auth();
 async function fetchUser(userId) {
-  const response = await clerkClient().users.getUser(userId);
-  console.log(response.emailAddresses);
+  try {
+    const user = await clerkClient().users.getUser(userId);
+    console.log(user.emailAddresses);
+
+    // Send the user data to the specified route
+    const response = await fetch("http://127.0.0.1:7000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send user data");
+    }
+
+    console.log("User data sent successfully");
+  } catch (error) {
+    console.error("Error fetching or sending user data:", error);
+  }
 }
+
 fetchUser(userId);
 
 const WelcomePage = () => {
