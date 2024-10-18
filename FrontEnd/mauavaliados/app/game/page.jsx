@@ -49,9 +49,15 @@ export default function Game() {
           }}
         />
       </Navbar>
-      <Image src={the_witcher} className="" />
+      <div className="relative w-full">
+        <Image
+          src={the_witcher}
+          className="w-full h-auto object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
+      </div>
       <div className="">
-        <div className="flex flex-row items-start justify-around mx-12 h-screen -mt-20">
+        <div className="flex flex-row items-start justify-around mx-12 h-screen -m-20 absolute z-2">
           <Image
             src={the_witcher_cover}
             width={300}
@@ -96,16 +102,16 @@ export default function Game() {
             <div className="flex flex-col gap-2">
               <p className="font-bold text-lg">Gêneros:</p>
               <div className="flex flex-row gap-2">
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-white border-b-[3px]  border-[#1d1d1d] hover:border-[#FFae00] hover:text-[#FFae00] transition duration-100 cursor-pointer">
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
                   Mundo Aberto
                 </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-white border-b-[3px]  border-[#1d1d1d] hover:border-[#FFae00] hover:text-[#FFae00] transition duration-100 cursor-pointer">
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
                   RPG
                 </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-white border-b-[3px]  border-[#1d1d1d] hover:border-[#FFae00] hover:text-[#FFae00] transition duration-100 cursor-pointer">
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
                   Aventura
                 </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-white border-b-[3px]  border-[#1d1d1d] hover:border-[#FFae00] hover:text-[#FFae00] transition duration-100 cursor-pointer">
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
                   Ação
                 </div>
               </div>
