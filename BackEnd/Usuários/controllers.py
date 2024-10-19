@@ -1,10 +1,11 @@
 from database import UserDB
 from connector import User
-
+from barramento import barramento
 
 class UserController:
     def __init__(self):
         pass
+
 
     def create_user(self, user: dict) -> dict:
         "Controller de criação de um usuário"
@@ -24,7 +25,7 @@ class UserController:
                 else "Sem Email"
             ),
         )
-
+        barramento().publish("UserCreated", db_user.to_dict())
         user = UserDB().create_user(db_user)
         return user
 
@@ -37,3 +38,5 @@ class UserController:
         "Controller de atualização de um usuário"
         update_user = UserDB().update_user(user_id, user_data)
         return update_user
+    
+    
