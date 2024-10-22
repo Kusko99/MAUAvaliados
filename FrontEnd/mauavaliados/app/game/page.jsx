@@ -6,6 +6,19 @@ import Image from "next/image";
 import logo from "../../public/logo_principal.svg";
 import the_witcher from "../../public/the_witcher.png";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+import WhereToPlay from "@/components/whereToPlay";
+import { FaSteam } from "react-icons/fa";
+import { FaPlaystation } from "react-icons/fa";
+import { FaXbox } from "react-icons/fa";
+import { FaTrophy } from "react-icons/fa";
+import GameDetails from "@/components/gameDetails";
 
 // #8C00FF
 // #FFAE00
@@ -15,12 +28,14 @@ export default function Game() {
   return (
     <SignedIn>
       <Navbar>
-        <Image
-          src={logo}
-          width={44}
-          height={44}
-          className="cursor-pointer transition ease-in-out hover:scale-105 hover:rotate-6"
-        />
+        <Link href={"/"}>
+          <Image
+            src={logo}
+            width={44}
+            height={44}
+            className="cursor-pointer transition ease-in-out hover:scale-105 hover:rotate-6"
+          />
+        </Link>
         <div className="flex items-center justify-around w-2/4">
           <Link
             className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold "
@@ -50,73 +65,33 @@ export default function Game() {
         />
       </Navbar>
       <div className="relative w-full">
-        <Image
-          src={the_witcher}
-          className="w-full h-auto object-cover z-0"
-        />
+        <Image src={the_witcher} className="w-full h-auto object-cover z-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
       </div>
-      <div className="">
-        <div className="flex flex-row items-start justify-around mx-12 h-screen -m-20 absolute z-2">
-          <Image
-            src={the_witcher_cover}
-            width={300}
-            className="rounded-sm pr-12"
+      <div className="flex flex-col">
+        <div className="-mt-20 absolute z-2">
+          <GameDetails
+            cover={the_witcher_cover}
+            title={"The Witcher 3: Wild Hunt"}
+            usuarios={"9,4"}
+            critica={"9,2"}
+            descricao={
+              "The Witcher 3: Wild Hunt conclui a história do bruxo Geralt de Rivia, protagonista da série, cuja história até agora foi abordada nas edições anteriores. A nova missão de Geralt surge em tempos sombrios, quando o exército misterioso e sobrenatural conhecido como Caçada Selvagem invade os Reinos do Norte, deixando apenas terra encharcada de sangue e ruínas de fogo em seu rastro; e parece que oWitcher é a chave para parar a sua violência cataclísmica."
+            }
+            lancamento={"18/05/2015"}
+            desenvolvedora={"CD Project Red"}
+            distribuidora={"CD Project Red"}
+            generos={["Mundo aberto", "RPG", "Ação", "Aventura"]}
           />
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-row justify-between">
-              <p className="text-4xl font-bold">The Witcher 3: Wild Hunt</p>
-              <div className="flex flex-row gap-5">
-                <div>nota</div>
-                <div>nota</div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 pt-9">
-              <p className="font-bold text-lg">Descrição:</p>
-              <p className="">
-                Você é Geralt de Rívia, mercenário matador de monstros. Você
-                está em um continente devastado pela guerra e infestado de
-                monstros para você explorar à vontade. Sua tarefa é encontrar
-                Ciri, a Criança da Profecia — uma arma viva que pode alterar a
-                forma do mundo.
-              </p>
-            </div>
-            <div className="flex flex-row justify-start gap-10">
-              <div className="flex gap-2">
-                <p className="font-bold">Data de lançamento: </p>
-                <p>18/05/2015</p>
-              </div>
-              <div className="flex gap-2">
-                <p className="font-bold">Desenvolvedora: </p>
-                <p className="text-[#FFae00] cursor-pointer hover:underline">
-                  CD Project Red
-                </p>
-              </div>
-              <div className="flex gap-2">
-                <p className="font-bold">Distribuidora: </p>
-                <p className="text-[#FFae00] cursor-pointer hover:underline">
-                  CD Project Red
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="font-bold text-lg">Gêneros:</p>
-              <div className="flex flex-row gap-2">
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
-                  Mundo Aberto
-                </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
-                  RPG
-                </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
-                  Aventura
-                </div>
-                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
-                  Ação
-                </div>
-              </div>
-            </div>
+          {/* --------------------------------------REVIEWS----------------------------------------------------- */}
+          <div className="m-12 flex flex-row items-center justify-between">
+            <p className="font-bold text-lg">Reviews</p>
+            <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2">
+              Adicionar review
+            </Button>
           </div>
+
+          {/* --------------------------------------REVIEWS----------------------------------------------------- */}
         </div>
       </div>
     </SignedIn>
