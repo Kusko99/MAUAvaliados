@@ -6,12 +6,15 @@ import { FaPlaystation } from "react-icons/fa";
 import { FaXbox } from "react-icons/fa";
 import { FaTrophy } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
+import Link from "next/link";
+import { MdGames } from "react-icons/md";
 
 const GameDetails = ({
   children,
   cover,
   title,
   usuarios,
+  igdb,
   critica,
   descricao,
   lancamento,
@@ -23,24 +26,39 @@ const GameDetails = ({
     <div className="flex flex-row items-start justify-around mx-12">
       <div className="flex flex-col min-w-max p-0 m-0 pr-12">
         <Image src={cover} width={300} className="rounded-sm" />
-        <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2">
-          <FaPlay />
-          Trailer
-        </Button>
+        <Link
+          href={
+            "https://www.youtube.com/watch?v=c0i88t0Kacs&pp=ygUVdGhlIHdpdGNoZXIgMyB0cmFpbGVy"
+          }
+          className="w-full"
+          target="_blank"
+        >
+          <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full">
+            <FaPlay />
+            Trailer
+          </Button>
+        </Link>
       </div>
 
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between items-center">
           <p className="text-4xl font-bold">{title}</p>
           <div className="flex flex-row gap-6">
-            <div className="flex flex-col bg-[#8c00ff] w-fit p-2 justify-around rounded-sm">
+            <div className="flex flex-col bg-[#FFAE00]/80 w-fit p-2 justify-around rounded-sm ">
               <p className="text-sm font-bold">Usuários</p>
               <div className="flex flex-row items-center justify-between w-full gap-5">
                 <p className="font-bold text-3xl">{usuarios}</p>
                 <FaTrophy size={"1.875rem"} />
               </div>
             </div>
-            <div className="flex flex-col bg-[#8c00ff] w-fit p-2 justify-around rounded-sm">
+            <div className="flex flex-col bg-[#8c00ff]/50 w-fit p-2 justify-around rounded-sm ">
+              <p className="text-sm font-bold">IGDB</p>
+              <div className="flex flex-row items-center justify-between w-full gap-5">
+                <p className="font-bold text-3xl">{igdb}</p>
+                <FaTrophy size={"1.875rem"} />
+              </div>
+            </div>
+            <div className="flex flex-col bg-[#8c00ff]/50 w-fit p-2 justify-around rounded-sm ">
               <p className="text-sm font-bold">Crítica</p>
               <div className="flex flex-row items-center justify-between w-full gap-5">
                 <p className="font-bold text-3xl">{critica}</p>
@@ -49,7 +67,11 @@ const GameDetails = ({
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-3 pt-9">
+        <div className="flex flex-col gap-3">
+          <Button className="bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-40">
+            <MdGames size={"1.5rem"} />
+            Adicionar à lista
+          </Button>
           <p className="font-bold text-lg">Descrição:</p>
           <p>{descricao}</p>
         </div>
