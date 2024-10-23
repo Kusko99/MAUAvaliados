@@ -40,6 +40,8 @@ def _get_access_token() -> dict:
     if response.status_code == 200:
         access_token = response.json()["access_token"]
         token_experition = time.time() + response.json()["expires_in"]
+        print('CLIENT ID: '+ credentials["IGDB_CLIENT_ID"])
+        print('ACCESS TOKEN: '+ access_token)
     else:
         raise Exception("Error getting access token")
     
