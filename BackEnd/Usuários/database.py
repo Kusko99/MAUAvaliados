@@ -40,3 +40,17 @@ class UserDB:
         except Exception as e:
             db.session.rollback()  
             return {"error": f"Erro ao atualizar usuário: {str(e)}"}
+    
+    def delete_user(self, user_id: str):
+        "Função para deletar um usuário"
+        try:
+            user = db.session.query(User).filter_by(id=user_id).first()
+            if not user:
+                return {"error": "Usuário não encontrado."}
+            
+            db.session.delete(user)
+            db.session.commit()
+            return {"message": "Usuário deletado com sucesso!"}
+        except Exception as e:
+            db.session.rollback()  
+            return {"error": f"Erro ao deletar usuário: {str(e)}"}
