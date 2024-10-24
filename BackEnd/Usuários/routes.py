@@ -12,7 +12,7 @@ def create_user():
     if not data:
         return jsonify({"message": "No input data provided"}), 400
     data = UserController().create_user(data)
-    return data
+    return data, 200
 
 
 @users_routes.route("/users/<user_id>", methods=["GET"])
