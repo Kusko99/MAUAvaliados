@@ -23,9 +23,17 @@ const GameDetails = ({
   generos,
 }) => {
   return (
-    <div className="flex flex-row items-start justify-around mx-12">
-      <div className="flex flex-col min-w-max p-0 m-0 pr-12">
-        <Image src={cover} width={300} className="rounded-sm" />
+    <div className="flex md:flex-row flex-col items-start justify-around mx-12">
+      <div className="flex flex-col min-w-max p-0 m-0 pr-12 ">
+        <div className="relative w-full max-w-[300px]">
+          <Image
+            src={cover}
+            layout="responsive"
+            width={300}
+            height={200}
+            className="rounded-sm"
+          />
+        </div>
         <Link
           href={
             "https://www.youtube.com/watch?v=c0i88t0Kacs&pp=ygUVdGhlIHdpdGNoZXIgMyB0cmFpbGVy"
@@ -41,7 +49,7 @@ const GameDetails = ({
       </div>
 
       <div className="flex flex-col gap-6">
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex lg:flex-row md:flex-col md:gap-4 justify-between items-center">
           <p className="text-4xl font-bold">{title}</p>
           <div className="flex flex-row gap-6">
             <div className="flex flex-col bg-[#FFAE00]/80 w-fit p-2 justify-around rounded-sm ">

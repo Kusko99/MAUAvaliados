@@ -22,6 +22,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "./ui/textarea";
 import { FaTrophy } from "react-icons/fa";
 
+
 export function AddReview() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
