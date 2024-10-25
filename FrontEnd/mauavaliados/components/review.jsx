@@ -5,6 +5,8 @@ import morty from "../public/morty.jpg";
 import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
+import ModalReview from "./modalReview";
+
 const Review = ({ review }) => {
   const [isLiked, setIsLiked] = useState(false);
 
@@ -12,13 +14,13 @@ const Review = ({ review }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-sm p-6">
+    <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-sm p-3 md:p-6 cursor-pointer border-transparent">
       <div className="flex flex-row justify-between">
-        <div className="flex flex-row gap-5 items-center">
-          <Image src={morty} width={48} className="rounded-full" />
+        <div className="flex flex-row gap-3 md:gap-5 items-center">
+          <Image src={morty} className="rounded-full w-8 md:w-12" />
           <p className="font-bold">Rivian_Soldier</p>
         </div>
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-row gap-3 md:gap-5">
           <div
             onClick={handleLikeClick}
             className="cursor-pointer flex flex-row gap-2 items-center"
@@ -36,13 +38,14 @@ const Review = ({ review }) => {
           </div>
         </div>
       </div>
-      <p className="line-clamp-3">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus
-        quasi magnam repellendus iure dolorem? Accusamus sapiente ratione
-        cupiditate inventore est quaerat accusantium iure libero, ad
-        exercitationem enim autem dolor totam!
-      </p>
-      <p className="text-sm">Data: 22/10/2024</p>
+      <p className="line-clamp-3 text-start">{review}</p>
+      <div
+        className="flex flex-row w-full justify-between items-center"
+        asChild
+      >
+        <p className="text-sm text-start">Data: 22/10/2024</p>
+        <ModalReview />
+      </div>
     </div>
   );
 };

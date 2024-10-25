@@ -9,11 +9,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-function GameCard() {
+function GameCard({ cover }) {
   return (
     <div className="group relative w-[230px] h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
       <Image
-        src={super_smash}
+        src={cover}
         className="absolute h-[346px] w-full object-cover group-hover:brightness-[0.25]"
       />
       <div className="relative font-bold mt-2">

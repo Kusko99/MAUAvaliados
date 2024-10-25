@@ -14,6 +14,7 @@ import { Lato } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
 import logo from "../public/logo_mauavaliados_img.png";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Create Next App",
