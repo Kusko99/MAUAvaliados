@@ -75,11 +75,11 @@ export default function Game() {
             generos={["Mundo aberto", "RPG", "Ação", "Aventura"]}
           />
           <div className="flex flex-col w-full">
-            <div className="mx-12 mt-11 mb-3 flex flex-row items-center justify-between">
+            <div className="mx-5 md:mx-12 mt-11 mb-3 flex flex-row items-center justify-between">
               <p className="font-bold text-lg">Reviews</p>
               <AddReview />
             </div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-12 mb-12">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12">
               <Review
                 review={
                   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"

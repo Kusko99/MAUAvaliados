@@ -4,18 +4,7 @@ import Image from "next/image";
 import morty from "../public/morty.jpg";
 import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import ModalReview from "./modalReview";
 
 const Review = ({ review }) => {
@@ -25,13 +14,13 @@ const Review = ({ review }) => {
     setIsLiked(!isLiked);
   };
   return (
-    <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-sm p-6 cursor-pointer border-transparent">
+    <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-sm p-3 md:p-6 cursor-pointer border-transparent">
       <div className="flex flex-row justify-between">
-        <div className="flex flex-row gap-5 items-center">
-          <Image src={morty} width={48} className="rounded-full" />
+        <div className="flex flex-row gap-3 md:gap-5 items-center">
+          <Image src={morty} className="rounded-full w-8 md:w-12" />
           <p className="font-bold">Rivian_Soldier</p>
         </div>
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-row gap-3 md:gap-5">
           <div
             onClick={handleLikeClick}
             className="cursor-pointer flex flex-row gap-2 items-center"
@@ -49,15 +38,7 @@ const Review = ({ review }) => {
           </div>
         </div>
       </div>
-      <p className="line-clamp-3 text-start">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus
-        quasi magnam repellendus iure dolorem? Accusamus sapiente ratione
-        cupiditate inventore est quaerat accusantium iure libero, ad
-        exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet
-        consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore
-        eaque libero, officia veritatis impedit quae dicta repellendus odio
-        molestiae? Dolorem temporibus sit nisi nihil sint?
-      </p>
+      <p className="line-clamp-3 text-start">{review}</p>
       <div
         className="flex flex-row w-full justify-between items-center"
         asChild
