@@ -1,13 +1,10 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
+import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import logo from "../../public/logo_principal.svg";
 import the_witcher from "../../public/the_witcher.png";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
 import Review from "@/components/review";
 import GameDetails from "@/components/gameDetails";
-import ModalReview from "@/components/modalReview";
 import { AddReview } from "@/components/addReview";
 
 // #8C00FF
@@ -17,43 +14,7 @@ import { AddReview } from "@/components/addReview";
 export default function Game() {
   return (
     <SignedIn>
-      <Navbar>
-        <Link href={"/"}>
-          <Image
-            src={logo}
-            width={44}
-            height={44}
-            className="cursor-pointer transition ease-in-out hover:scale-105 hover:rotate-6"
-          />
-        </Link>
-        <div className="flex items-center justify-around w-2/4">
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold "
-            href={"/"}
-          >
-            Pesquisar
-          </Link>
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold"
-            href={"/"}
-          >
-            Minhas Reviews
-          </Link>
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold"
-            href={"/"}
-          >
-            Listas
-          </Link>
-        </div>
-        <UserButton
-          appearance={{
-            elements: {
-              avatarBox: "w-8 h-8",
-            },
-          }}
-        />
-      </Navbar>
+      <Navbar />
       <div className="relative w-full">
         <Image src={the_witcher} className="w-full h-auto object-cover z-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>

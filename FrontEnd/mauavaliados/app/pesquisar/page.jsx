@@ -1,11 +1,8 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
+import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
-import Image from "next/image";
-import logo from "../../public/logo_principal.svg";
 import { FiSearch } from "react-icons/fi";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 // #8C00FF
 // #FFAE00
@@ -14,43 +11,7 @@ import { Button } from "@/components/ui/button"
 export default function Pesquisar() {
   return (
     <SignedIn>
-      <Navbar>
-        <Link href={"/"}>
-          <Image
-            src={logo}
-            width={44}
-            height={44}
-            className="cursor-pointer transition ease-in-out hover:scale-105 hover:rotate-6"
-          />
-        </Link>
-        <div className="flex items-center justify-around w-2/4">
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold "
-            href={"/"}
-          >
-            Pesquisar
-          </Link>
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold"
-            href={"/"}
-          >
-            Minhas Reviews
-          </Link>
-          <Link
-            className="relative after:bg-[#FFAE00] after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-500  after:rounded-lg hover:scale-110 p-1 font-bold"
-            href={"/"}
-          >
-            Listas
-          </Link>
-        </div>
-        <UserButton
-          appearance={{
-            elements: {
-              avatarBox: "w-8 h-8",
-            },
-          }}
-        />
-      </Navbar>
+      <Navbar />
       <div className="relative flex flex-col w-full">
         {/* Transformar em componente SearchBar */}
         <div className="relative mx-12 mt-24">
@@ -68,29 +29,61 @@ export default function Pesquisar() {
 
         <h1 className="text-3xl font-bold pb-4 mx-12 mt-12">Categorias</h1>
         <div className="mt-2 mx-12 gap-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
-          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#8C00FF] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">Lançamentos</Button>
-          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#FFAE00] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">Em Alta</Button>
-          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#E1005E] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">Recomendações</Button>
+          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#8C00FF] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">
+            Lançamentos
+          </Button>
+          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#FFAE00] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">
+            Em Alta
+          </Button>
+          <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#E1005E] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">
+            Recomendações
+          </Button>
         </div>
 
         <h1 className="text-3xl font-bold pb-4 mx-12 mt-12">Gêneros</h1>
         <div className="mt-2 mx-12 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Mundo Aberto</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">RPG</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Ação</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Aventura</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Estratégia</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Simulação</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Esportes</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Corrida</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Puzzle</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Terror</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Plataforma</Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">Multijogador</Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Mundo Aberto
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            RPG
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Ação
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Aventura
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Estratégia
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Simulação
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Esportes
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Corrida
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Puzzle
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Terror
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Plataforma
+          </Button>
+          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
+            Multijogador
+          </Button>
         </div>
 
         <div className="flex row justify-center mt-12">
-        <Button className="px-10 py-5 text-md rounded-sm bg-[#4d4d4d] hover:bg-[#3d3d3d]">Ver Mais</Button>
+          <Button className="px-10 py-5 text-md rounded-sm bg-[#4d4d4d] hover:bg-[#3d3d3d]">
+            Ver Mais
+          </Button>
         </div>
       </div>
     </SignedIn>

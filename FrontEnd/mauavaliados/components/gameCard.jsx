@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import super_smash from "../public/super_smash.png";
 import { MdGames } from "react-icons/md";
 import {
   Tooltip,

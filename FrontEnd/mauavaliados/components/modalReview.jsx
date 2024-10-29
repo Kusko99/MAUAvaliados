@@ -1,17 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import Review from "@/components/review";
+
 import Image from "next/image";
 import the_witcher from "../public/the_witcher.png";
 import morty from "../public/morty.jpg";
