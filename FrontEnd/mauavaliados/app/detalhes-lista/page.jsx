@@ -18,7 +18,8 @@ export default function DetalhesLista() {
       </div>
       <div className="flex justify-center">
         <div className="max-w-7xl">
-          <div className="mx-5 md:mx-12 xl:mx-40 -mt-16 absolute right-0 flex flex-row gap-4 max-w-7xl">
+          <div className="flex flex-row justify-end mx-5 md:mx-12">
+          <div className="-mt-12 absolute flex flex-row gap-4">
             <TooltipLista text={"Editar Lista"}>
               <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
             </TooltipLista>
@@ -28,6 +29,7 @@ export default function DetalhesLista() {
                 className="hover:text-[#E1005E] transition"
               />
             </TooltipLista>
+          </div>
           </div>
           <div className="flex flex-row justify-between mx-5 md:mx-12">
             <p className="text-2xl font-bold">Jogos Top!!!</p>

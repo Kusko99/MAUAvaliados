@@ -9,7 +9,7 @@ const GameCardList = ({ games }) => {
       <div className="group relative max-w-60 h-80 rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
         <Image
           src={the_witcher_cover}
-          className="absolute w-full object-cover"
+          className="absolute w-full object-cover h-full"
         />
         <div className="flex flex-col h-full">
           <div className="relative text-black top-0 flex justify-end pt-2 pr-2">
