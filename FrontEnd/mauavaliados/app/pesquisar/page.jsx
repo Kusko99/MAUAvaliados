@@ -3,17 +3,32 @@ import Navbar from "@/components/navbar";
 import { FiSearch } from "react-icons/fi";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import SearchGenre from "@/components/search_genre";
 
 // #8C00FF
 // #FFAE00
 // #E1005E
 
 export default function Pesquisar() {
+  const genres = [
+    'Mundo Aberto',
+    'RPG',
+    'Ação',
+    'Aventura',
+    'Estratégia',
+    'Simulação',
+    'Esportes',
+    'Corrida',
+    'Puzzle',
+    'Terror',
+    'Plataforma',
+    'Multijogador',
+  ];
+
   return (
     <SignedIn>
       <Navbar />
-      <div className="flex flex-col max-w-7xl mx-auto">
-        {/* Transformar em componente SearchBar */}
+      <div className="flex flex-col max-w-7xl mx-auto mb-12">
         <div className="relative mx-5 md:mx-12 mt-24">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <FiSearch className="w-6 h-6" />
@@ -42,42 +57,9 @@ export default function Pesquisar() {
 
         <h1 className="text-3xl font-bold pb-4 mx-5 md:mx-12 mt-12">Gêneros</h1>
         <div className="mt-2 mx-5 md:mx-12 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Mundo Aberto
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            RPG
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Ação
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Aventura
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Estratégia
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Simulação
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Esportes
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Corrida
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Puzzle
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Terror
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Plataforma
-          </Button>
-          <Button className="w-full py-10 text-lg font-semibold bg-[#2d2d2d] hover:bg-white hover:text-[#1d1d1d] rounded-sm">
-            Multijogador
-          </Button>
+          {genres.map((genre, index) => (
+            <SearchGenre key={index} genre={genre} />
+          ))}
         </div>
 
         <div className="flex row justify-center mt-12">
