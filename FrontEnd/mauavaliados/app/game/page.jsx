@@ -20,7 +20,7 @@ export default function Game() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
       </div>
       <div className="flex flex-col items-center">
-        <div className="-mt-20 absolute z-2 max-w-[1400px]">
+        <div className="-mt-20 absolute z-2 max-w-7xl">
           <GameDetails
             cover={the_witcher_cover}
             title={"The Witcher 3: Wild Hunt"}
