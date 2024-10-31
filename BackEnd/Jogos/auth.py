@@ -11,7 +11,7 @@ token_experition = None
 
 def _get_credentials() -> dict:
     """Retorna as credenciais do IGDB a partir do dotenv"""
-    dotenv_path = Path(__file__).resolve().parent.parent / ".env"
+    dotenv_path = Path(__file__).resolve() / ".env"
     load_dotenv(dotenv_path=dotenv_path)
     IGDB_CLIENT_ID = os.getenv("IGDB_CLIENT_ID")
     IGDB_CLIENT_SECRET = os.getenv("IGDB_CLIENT_SECRET")

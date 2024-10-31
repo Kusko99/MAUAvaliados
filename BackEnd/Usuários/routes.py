@@ -38,3 +38,7 @@ def delete_user(user_id:str):
     if response.get("error"):
         return response, 400
     return response, 200
+
+@users_routes.route("/test", methods=["GET"])
+def test():
+    return {"message": "Raul onde está o homesexualismo?!??!"}

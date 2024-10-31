@@ -11,7 +11,8 @@ class barramento:
 
     def publish(self,type:str,body:dict):
         "Metodo para publicar um evento em na fila"
-        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        #Se for rodar local trocar está host.docker.internal por localhost
+        connection = pika.BlockingConnection(pika.ConnectionParameters('host.docker.internal'))
         channel = connection.channel()
         channel.queue_declare(queue='eventos')
         event = self.event(type,body)

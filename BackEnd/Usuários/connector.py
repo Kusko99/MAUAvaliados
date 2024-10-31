@@ -1,4 +1,3 @@
-import pymysql
 from mysql.connector import Error
 from dotenv import load_dotenv
 from pathlib import Path
@@ -7,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from base_model import BaseModel
 
 
-dotenv_path = Path(__file__).resolve().parent.parent / ".env"
+dotenv_path = Path(__file__).resolve() / ".env"
 load_dotenv(dotenv_path=dotenv_path)
 
 db = SQLAlchemy()
