@@ -19,9 +19,9 @@ def consumer():
 
 def main():
     #Importando as rotas
-    from routes import avalicao_routes
+    from routes import avaliacao_routes
     #Registrando as rotas
-    app.register_blueprint(avalicao_routes)
+    app.register_blueprint(avaliacao_routes)
 
 if __name__ == '__main__':
     consumer_thread = Thread(target=consumer)

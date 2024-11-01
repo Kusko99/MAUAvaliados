@@ -10,8 +10,7 @@ import time
 class DBGameAPI:
     def __init__(self):
         # Carrega as variaves de ambiente do .env
-        dotenv_path = Path(__file__).resolve().parent.parent / '.env'
-        load_dotenv(dotenv_path=dotenv_path)   
+        load_dotenv()   
         # Pega as variaves de ambiente do .env
         self.IGDB_CLIENT_ID = os.getenv('IGDB_CLIENT_ID')
         self.IGDB_CLIENT_SECRET = os.getenv('IGDB_CLIENT_SECRET')

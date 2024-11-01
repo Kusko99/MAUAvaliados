@@ -3,16 +3,16 @@ from dotenv import load_dotenv
 from pathlib import Path
 import os
 from flask_sqlalchemy import SQLAlchemy
-from base_model import BaseModel
 
 
-dotenv_path = Path(__file__).resolve() / ".env"
-load_dotenv(dotenv_path=dotenv_path)
+load_dotenv()
 
 db = SQLAlchemy()
 
 
 def init_db(app):
+    print(f"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}"
+        f"@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DB_USER')}")
     "Função para inicializar o SQLAlchemy"
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         f"mysql+pymysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}"
