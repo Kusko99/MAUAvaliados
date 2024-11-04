@@ -18,7 +18,7 @@ export default function Listas() {
       <Navbar />
       <div className="flex max-w-7xl mx-auto flex-col items-center ">
         <div className="mt-24 w-full">
-          <div className="flex flex-row justify-between items-center mx-5 lg:mx-0">
+          <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
             <p className="text-3xl font-semibold">Listas</p>
             <div>
               <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full">
@@ -26,7 +26,7 @@ export default function Listas() {
               </Button>
             </div>
           </div>
-          <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 lg:mx-0 mb-12 mt-10">
+          <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-10">
             <Lista />
             <Lista />
             <Lista />

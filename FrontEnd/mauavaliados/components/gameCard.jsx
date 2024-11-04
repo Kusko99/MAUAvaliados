@@ -10,7 +10,7 @@ import {
 
 function GameCard({ cover }) {
   return (
-    <div className="group relative w-[230px] h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
+    <div className="group relative w-[100px] h-[150px] sm:w-[150px] sm:h-[225px] md:w-[175px] md:h-[265px] lg:w-[200px] lg:h-[300px] xl:w-[230px] xl:h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
       <Image
         src={cover}
         className="absolute h-full w-full group-hover:brightness-[0.25]"
