@@ -63,6 +63,7 @@ class DBGameAPI:
             dic.update({"trailers":['https://www.youtube.com/watch?v='+i['video_id'] for i in p_jogo['videos']]})
         else:
              dic.update({"trailers":'Indisponível'})
+             #oi
         
       
         
