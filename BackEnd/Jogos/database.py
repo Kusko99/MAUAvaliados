@@ -23,7 +23,7 @@ class DBGameAPI:
         'Client-ID': self.IGDB_CLIENT_ID,
         'Authorization': f'Bearer {self.access_token}',
         }
-        data = 'fields *, involved_companies.company.name, game_engines.*, videos.*, cover.*, platforms.name, franchises.*, genres.name, release_dates.*; search "cs"; limit 1;'
+        data = 'fields *, involved_companies.company.name, involved_companies.publisher, involved_companies.porting, involved_companies.developer, cover.game.*, game_engines.*, videos.*, cover.*, platforms.name, platforms.platform_logo.*, franchises.*, genres.name, release_dates.*; search "league of legends"; limit 1;'
         response =  requests.post(url,headers=headers,data=data)
 
         url = "https://api.igdb.com/v4/companies"
@@ -43,23 +43,26 @@ class DBGameAPI:
         'Authorization': f'Bearer {self.access_token}',
         'Accept': 'application/json'
         }
-        data = 'fields id, involved_companies.company.name, name, cover.*, *, videos.*, genres.name, platforms.*, release_dates.*, screenshots.*; search "league of legends"; limit 1;'
+        data = 'fields id, involved_companies.company.name, name, cover.*, *, involved_companies.publisher, involved_companies.developer, platforms.platform_logo.*, videos.*, genres.name, platforms.name, release_dates.*, screenshots.*; search "league of legends"; limit 1;'
         response =  requests.post(url,headers=headers,data=data)
         game_data = response.json()
         print(game_data)
         p_jogo = game_data[0]
-        dic.update({"capa": p_jogo['cover']['url']})
+        dic.update({"capa": 'https://api.igdb.com/v4/covers/' + p_jogo['cover']['image_id'] + '.jpg'})
         dic.update({"nome": p_jogo['name']})
         dic.update({"descricao": p_jogo['summary']})
         dic.update({"criado_em": time.strftime("%D", time.gmtime(p_jogo['first_release_date']))})
         dic.update({"empresas_envolvidas": [i['company']['name'] for i in p_jogo['involved_companies']]})
         dic.update({"generos": [i['name'] for i in p_jogo['genres']]})
-        dic.update({"plataformas":[i['name'] for i in p_jogo['platforms']]})
+        dic.update({"plataformas":[{'nome':i['name'], 'logo':i['platform_logo']['url']} for i in p_jogo['platforms']]})
         # dic.update({"trailers":['https://www.youtube.com/watch?v='+i['video_id'] for i in p_jogo['videos']]})
-        if 'videos' in p_jogo:
+        dic.update({"empresa_desenvolvedora": [i['company']['name'] for i in p_jogo['involved_companies'] if i['developer'] == True][0]})
+        dic.update({"empresas_distribuidoras": [i['company']['name'] for i in p_jogo['involved_companies'] if i['publisher'] == True]})
+        if'videos' in p_jogo:
             dic.update({"trailers":['https://www.youtube.com/watch?v='+i['video_id'] for i in p_jogo['videos']]})
         else:
-            pass
+             dic.update({"trailers":'Indisponível'})
+             #oi
         
       
         
