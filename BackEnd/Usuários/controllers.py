@@ -39,4 +39,8 @@ class UserController:
         update_user = UserDB().update_user(user_id, user_data)
         return update_user
     
+    def delete_user(self, user_id: str) -> dict:
+        "Controller de exclusão de um usuário"
+        response = UserDB().delete_user(user_id)
+        return response
     

@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import super_smash from "../public/super_smash.png";
 import { MdGames } from "react-icons/md";
 import {
   Tooltip,
@@ -9,12 +8,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-function GameCard() {
+function GameCard({ cover }) {
   return (
     <div className="group relative w-[230px] h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
       <Image
-        src={super_smash}
-        className="absolute h-[346px] w-full object-cover group-hover:brightness-[0.25]"
+        src={cover}
+        className="absolute h-full w-full group-hover:brightness-[0.25]"
       />
       <div className="relative font-bold mt-2">
         <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 justify-between h-full w-full">

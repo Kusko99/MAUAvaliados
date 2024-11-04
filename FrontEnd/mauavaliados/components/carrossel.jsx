@@ -7,19 +7,61 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import GameCard from "@/components/gameCard";
+import Link from "next/link";
+import super_smash from "../public/super_smash.png";
+import the_witcher from "../public/the_witcher_cover.png";
+import tlou from "../public/tlou.png";
 
 function Carrossel() {
+  const covers = [
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+  ];
+
   return (
     <div className="flex justify-center mx-auto w-full max-w-full">
-      <Carousel className="min-w-full max-w-lg m-0 p-0 flex justify-center ">
+      <Carousel className="min-w-full max-w-lg m-0 p-0 flex justify-center">
         <CarouselContent className="w-screen z-0">
-          {Array.from({ length: 20 }).map((_, index) => (
+          {covers.map((cover, index) => (
             <CarouselItem
               key={index}
-              className=" sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6"
+              className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
               <div className="pl-12">
-                <GameCard className="items-center justify-center" />
+                <Link href="/game">
+                  <GameCard
+                    cover={cover}
+                    className="items-center justify-center"
+                  />
+                </Link>
               </div>
             </CarouselItem>
           ))}

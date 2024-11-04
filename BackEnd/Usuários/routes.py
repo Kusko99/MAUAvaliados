@@ -12,7 +12,7 @@ def create_user():
     if not data:
         return jsonify({"message": "No input data provided"}), 400
     data = UserController().create_user(data)
-    return data
+    return data, 200
 
 
 @users_routes.route("/users/<user_id>", methods=["GET"])
@@ -30,3 +30,15 @@ def update_user(user_id:str):
         return jsonify({"message": "No input data provided"}), 400
     data = UserController().update_user(user_id,data)
     return data
+
+@users_routes.route("/users/<user_id>", methods=["DELETE"])
+def delete_user(user_id:str):
+    "Rota para deletar um usuário"
+    response = UserController().delete_user(user_id)
+    if response.get("error"):
+        return response, 400
+    return response, 200
+
+@users_routes.route("/test", methods=["GET"])
+def test():
+    return {"message": "Raul onde está o homesexualismo?!??!"}
