@@ -47,7 +47,7 @@ export default function DetalhesLista() {
             qui eveniet in eum dolorem.
           </p>
           <div className="flex flex-col">
-            <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 mx-5 md:mx-12 my-12 justify-between gap-3 place-items-center">
+            <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 mx-5 md:mx-12 my-12 justify-between gap-4 place-items-center">
               {/* <div className="flex items-center justify-center w-60 h-80 bg-[#2d2d2d] m-0 p-0 overflow-hidden rounded-sm">
             <Image src={the_witcher_cover} className="w-full object-cover" />
           </div> */}

@@ -8,9 +8,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-function GameCard({ cover }) {
+function gameCardCategory({ cover }) {
   return (
-    <div className="group relative w-[100px] h-[150px] sm:w-[150px] sm:h-[225px] md:w-[170px] md:h-[260px] lg:w-[200px] lg:h-[300px] xl:w-[230px] xl:h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
+    <div className="group relative w-[160px] h-[250px] lg:w-[200px] lg:h-[300px] xl:w-[230px] xl:h-[346px] bg-white rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
       <Image
         src={cover}
         className="absolute h-full w-full group-hover:brightness-[0.25]"
@@ -44,4 +44,4 @@ function GameCard({ cover }) {
   );
 }
 
-export default GameCard;
+export default gameCardCategory;
