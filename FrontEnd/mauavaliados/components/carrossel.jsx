@@ -59,7 +59,7 @@ function Carrossel() {
               marginRight: isLastItem(index, covers.length) ? '128px' : '48px',
             }}
           >
-              <div className="pl-12">
+              <div className="xl:pl-12 lg:pl-12 md:pl-10 sm:pl-4 pl-4">
                 <Link href="/game">
                   <GameCard
                     cover={cover}
