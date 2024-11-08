@@ -10,7 +10,7 @@ export default function MinhasReviews() {
       <div className="flex max-w-7xl mx-auto flex-col items-center ">
         <div className="mt-24 w-full">
           <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
-            <p className="text-3xl font-semibold">Minhas Reviews</p>
+            <p className="md:text-3xl text-2xl font-semibold">Minhas Reviews</p>
           </div>
           <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-4">
             <MinhaReview

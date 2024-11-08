@@ -54,9 +54,9 @@ function Carrossel() {
         {covers.map((cover, index) => (
           <CarouselItem
             key={index}
-            className={`basis-1/6 mr-12`}
+            className={`xl:basis-56 lg:basis-48 md:basis-36 sm:basis-36 basis-16`}
             style={{
-              marginRight: isLastItem(index, covers.length) ? '128px' : '48px',
+              marginRight: isLastItem(index, covers.length) ? '708px' : '48px',
             }}
           >
               <div className="xl:pl-12 lg:pl-12 md:pl-10 sm:pl-4 pl-4">

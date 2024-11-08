@@ -5,7 +5,8 @@ import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 
-import ModalReview from "./modalReview";
+import ModalMinhaReview from "./modalMinhaReview";
+import Link from "next/link";
 
 const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -15,7 +16,7 @@ const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
   };
   return (
     <div className="flex flex-row gap-2">
-      <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2a0747]">
+      <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
         <div className="group relative w-40 h-full rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
           <Image
             src={cover}
@@ -27,7 +28,7 @@ const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
         <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-md p-3 md:p-6 cursor-pointer ">
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3 md:gap-5 items-center">
-              <p className="font-bold text-[#FFAE00] hover:underline-offset-1 hover:underline transition line-clamp-1">{game_name}</p>
+              <Link href={"/game"} className="font-bold text-[#FFAE00] hover:underline-offset-1 hover:underline transition line-clamp-1">{game_name}</Link>
             </div>
             <div className="flex flex-row gap-3 md:gap-5">
               <div
@@ -53,7 +54,7 @@ const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
             asChild
           >
             <p className="text-sm text-start">Data: {data}</p>
-            <ModalReview />
+            <ModalMinhaReview />
           </div>
         </div>
       </div>

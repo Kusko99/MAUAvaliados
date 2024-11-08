@@ -19,7 +19,7 @@ export default function Listas() {
       <div className="flex max-w-7xl mx-auto flex-col items-center ">
         <div className="mt-24 w-full">
           <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
-            <p className="text-3xl font-semibold">Listas</p>
+            <p className="md:text-3xl text-2xl font-semibold">Listas</p>
             <div>
               <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full">
                 Nova lista

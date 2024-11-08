@@ -42,7 +42,7 @@ export default function Pesquisar() {
           />
         </div>
 
-        <h1 className="text-3xl font-bold pb-4 mx-5 md:mx-12 mt-12">Categorias</h1>
+        <h1 className="md:text-3xl text-2xl font-bold pb-4 mx-5 md:mx-12 mt-12">Categorias</h1>
         <div className="mt-2 mx-5 md:mx-12 gap-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
           <Button className="w-full py-12 text-xl font-semibold bg-gradient-to-r from-[#8C00FF] to-[#2D2D2D] transition duration-300 ease-in-out transform hover:scale-105 rounded-sm">
             Lançamentos
@@ -55,7 +55,7 @@ export default function Pesquisar() {
           </Button>
         </div>
 
-        <h1 className="text-3xl font-bold pb-4 mx-5 md:mx-12 mt-12">Gêneros</h1>
+        <h1 className="md:text-3xl text-2xl font-bold pb-4 mx-5 md:mx-12 mt-12">Gêneros</h1>
         <div className="mt-2 mx-5 md:mx-12 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {genres.map((genre, index) => (
             <SearchGenre key={index} genre={genre} />

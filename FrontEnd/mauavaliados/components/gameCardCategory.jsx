@@ -19,16 +19,16 @@ function gameCardCategory({ cover }) {
         <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 justify-between h-full w-full">
           <TooltipProvider>
             <div className="absolute top-2 right-2">
-              <Tooltip>
+            <Tooltip>
                 <TooltipTrigger>
                   <MdGames
                     size={"1.7em"}
-                    className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#8C00FF]"
+                    className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#FFAE00]"
                   />
                 </TooltipTrigger>
                 <TooltipContent
                   side="left"
-                  className="drop-shadow-sm bg-[#8C00FF] text-white"
+                  className="drop-shadow-sm bg-[#FFAE00] text-black"
                 >
                   <p>Adicionar à lista</p>
                 </TooltipContent>

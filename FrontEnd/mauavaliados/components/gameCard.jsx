@@ -23,12 +23,12 @@ function GameCard({ cover }) {
                 <TooltipTrigger>
                   <MdGames
                     size={"1.7em"}
-                    className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#8C00FF]"
+                    className="flex cursor-pointer transition ease-in-out hover:scale-110 hover:rotate-90 hover:text-[#FFAE00]"
                   />
                 </TooltipTrigger>
                 <TooltipContent
                   side="left"
-                  className="drop-shadow-sm bg-[#8C00FF] text-white"
+                  className="drop-shadow-sm bg-[#FFAE00] text-black"
                 >
                   <p>Adicionar à lista</p>
                 </TooltipContent>

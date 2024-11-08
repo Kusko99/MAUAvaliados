@@ -20,10 +20,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
         </div>
         <div className="max-w-7xl mx-auto ">
-          <div className="flex flex-col items-start justify-start h-screen -mt-20 ">
-            <h1 className="text-3xl font-bold pb-4 mx-5 md:mx-12 z-20">Lançamentos</h1>
+          <div className="flex flex-col items-start justify-start h-screen xl:-mt-20 lg:-mt-20 md:-mt-20 sm:-mt-20">
+            <h1 className="md:text-3xl text-2xl font-bold pb-4 mx-5 md:mx-12 z-20">Lançamentos</h1>
             <Carrossel />
-            <h1 className="text-3xl font-bold pb-4 mx-5 md:mx-12 mt-12">Em alta</h1>
+            <h1 className="md:text-3xl text-2xl font-bold pb-4 mx-5 md:mx-12 mt-12">Em alta</h1>
             <Carrossel />
           </div>
         </div>

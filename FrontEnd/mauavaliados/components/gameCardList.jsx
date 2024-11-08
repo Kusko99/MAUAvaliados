@@ -5,7 +5,7 @@ import the_witcher_cover from "../public/the_witcher_cover.png";
 
 const GameCardList = ({ games }) => {
   return (
-    <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#8c00ff] hover:to-[#2a0747]">
+    <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
       <div className="group relative w-[230px] h-[346px] rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
         <Image
           src={the_witcher_cover}

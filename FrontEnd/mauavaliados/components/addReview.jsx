@@ -31,7 +31,7 @@ export function AddReview() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="bg-[#FFAE00] text-black rounded-sm hover:bg-[#FFAE00] hover:brightness-90 transition hover:text-black font-bold gap-2 text-md">
+          <Button className="bg-[#8c00ff] text-white rounded-sm hover:bg-[#8c00ff] hover:brightness-90 transition hover:text-white font-bold gap-2 text-md">
             Adicionar review
           </Button>
         </DialogTrigger>
@@ -48,7 +48,7 @@ export function AddReview() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button className="bg-[#FFAE00] text-black rounded-sm hover:bg-[#FFAE00] hover:brightness-90 transition hover:text-black font-bold gap-2 text-md">
+        <Button className="bg-[#8c00ff] text-white rounded-sm hover:bg-[#8c00ff] hover:brightness-90 transition hover:text-white font-bold gap-2 text-md">
           Adicionar review
         </Button>
       </DrawerTrigger>
@@ -94,7 +94,7 @@ function ReviewForm({ className }) {
       </div>
       <Button
         type="submit"
-        className="bg-[#FFAE00] text-black mt-2 rounded-sm hover:bg-[#FFAE00] hover:brightness-90 transition hover:text-black font-bold gap-2 text-md"
+        className="bg-[#8c00ff] text-white mt-2 rounded-sm hover:bg-[#8c00ff] hover:brightness-90 transition hover:text-white font-bold gap-2 text-md"
       >
         Salvar
       </Button>
