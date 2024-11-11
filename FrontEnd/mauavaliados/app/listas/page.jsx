@@ -1,15 +1,7 @@
 import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
-import Image from "next/image";
-import the_witcher from "../../public/the_witcher.png";
-import the_witcher_cover from "../../public/the_witcher_cover.png";
-import Review from "@/components/review";
-import GameDetails from "@/components/gameDetails";
-import { AddReview } from "@/components/addReview";
+import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { FaRegEdit } from "react-icons/fa";
-import { FaRegTrashCan } from "react-icons/fa6";
-import TooltipLista from "@/components/tooltipLista";
 import Lista from "@/components/lista";
 
 export default function Listas() {
@@ -36,6 +28,7 @@ export default function Listas() {
           </div>
         </div>
       </div>
+      <Footer />
     </SignedIn>
   );
 }

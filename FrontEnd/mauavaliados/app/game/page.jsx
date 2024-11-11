@@ -1,5 +1,6 @@
 import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import Image from "next/image";
 import the_witcher from "../../public/the_witcher.png";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
@@ -15,12 +16,12 @@ export default function Game() {
   return (
     <SignedIn>
       <Navbar />
-      <div className="relative w-full ">
+      <div className="relative w-full">
         <Image src={the_witcher} className="w-full h-auto object-cover z-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
       </div>
-      <div className="flex flex-col items-center">
-        <div className="-mt-20 absolute z-2 max-w-7xl">
+      <div className="flex flex-col items-center relative z-2">
+        <div className="-mt-20 max-w-7xl">
           <GameDetails
             cover={the_witcher_cover}
             title={"The Witcher 3: Wild Hunt"}
@@ -65,6 +66,7 @@ export default function Game() {
           </div>
         </div>
       </div>
+      <Footer />
     </SignedIn>
   );
 }

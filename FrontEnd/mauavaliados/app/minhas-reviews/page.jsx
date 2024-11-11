@@ -1,5 +1,6 @@
 import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import MinhaReview from "@/components/minhaReview";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
 
@@ -7,7 +8,7 @@ export default function MinhasReviews() {
   return (
     <SignedIn>
       <Navbar />
-      <div className="flex max-w-7xl mx-auto flex-col items-center ">
+      <div className="flex max-w-7xl mx-auto min-h-screen flex-col items-center ">
         <div className="mt-24 w-full">
           <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
             <p className="md:text-3xl text-2xl font-semibold">Minhas Reviews</p>
@@ -24,6 +25,7 @@ export default function MinhasReviews() {
           </div>
         </div>
       </div>
+      <Footer />
     </SignedIn>
   );
 }

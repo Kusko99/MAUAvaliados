@@ -1,11 +1,11 @@
 import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import Image from "next/image";
 import the_witcher from "../../public/the_witcher.png";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import TooltipLista from "@/components/tooltipLista";
-import the_witcher_cover from "../../public/the_witcher_cover.png";
 import GameCardList from "@/components/gameCardList";
 
 export default function DetalhesLista() {
@@ -19,17 +19,17 @@ export default function DetalhesLista() {
       <div className="flex justify-center">
         <div className="max-w-7xl">
           <div className="flex flex-row justify-end mx-5 md:mx-12">
-          <div className="-mt-12 absolute flex flex-row gap-4">
-            <TooltipLista text={"Editar Lista"}>
-              <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
-            </TooltipLista>
-            <TooltipLista text={"Excluir Lista"}>
-              <FaRegTrashCan
-                size={"22px"}
-                className="hover:text-[#E1005E] transition"
-              />
-            </TooltipLista>
-          </div>
+            <div className="-mt-12 absolute flex flex-row gap-4">
+              <TooltipLista text={"Editar Lista"}>
+                <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
+              </TooltipLista>
+              <TooltipLista text={"Excluir Lista"}>
+                <FaRegTrashCan
+                  size={"22px"}
+                  className="hover:text-[#E1005E] transition"
+                />
+              </TooltipLista>
+            </div>
           </div>
           <div className="flex flex-row justify-between mx-5 md:mx-12">
             <p className="text-2xl font-bold">Jogos Top!!!</p>
@@ -68,6 +68,7 @@ export default function DetalhesLista() {
           </div>
         </div>
       </div>
+      <Footer />
     </SignedIn>
   );
 }

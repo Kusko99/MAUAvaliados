@@ -1,5 +1,6 @@
 import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import { FiSearch } from "react-icons/fi";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -68,6 +69,7 @@ export default function Pesquisar() {
           </Button>
         </div>
       </div>
+      <Footer />
     </SignedIn>
   );
 }
