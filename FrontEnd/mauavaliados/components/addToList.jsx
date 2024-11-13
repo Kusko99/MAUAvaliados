@@ -12,18 +12,24 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const AddToList = ({ id }) => {
+const AddToList = ({ children, isLeft, isRight }) => {
   const [showStatusBar, setShowStatusBar] = React.useState(true);
   const [showActivityBar, setShowActivityBar] = React.useState(false);
   const [showPanel, setShowPanel] = React.useState(false);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <TooltipLista isLeft text={"Adicionar à lista"}>
-          <MdGames
-            size={"1.7rem"}
-            className="hover:text-[#FFAE00] transition"
-          />
+        <TooltipLista
+          isLeft={isLeft ? true : false}
+          isRight={isRight ? true : false}
+          text={"Adicionar à lista"}
+        >
+          {children || (
+            <MdGames
+              size={"1.7rem"}
+              className="hover:text-[#FFAE00] transition"
+            />
+          )}
         </TooltipLista>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-[#2d2d2d] text-white border-none">

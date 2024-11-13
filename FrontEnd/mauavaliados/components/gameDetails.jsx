@@ -12,6 +12,7 @@ import { MdGames } from "react-icons/md";
 import GameDetailsSmall from "@/components/gameDetailsSmall";
 import { useEffect, useState } from "react";
 import the_witcher_cover from "../public/the_witcher_cover.png";
+import AddToList from "./addToList";
 
 const GameDetails = ({
   children,
@@ -104,14 +105,19 @@ const GameDetails = ({
                 </div>
               </div>
             </div>
+            <div className="">
+              <AddToList isRight>
+                <Button className="flex justify-start bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-40">
+                  <MdGames size={"1.5rem"} />
+                  Adicionar à lista
+                </Button>
+              </AddToList>
+            </div>
             <div className="flex flex-col gap-3">
-              <Button className="bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-40">
-                <MdGames size={"1.5rem"} />
-                Adicionar à lista
-              </Button>
               <p className="font-bold text-lg w-full">Descrição:</p>
               <p>{descricao}</p>
             </div>
+
             <div className="flex flex-wrap justify-start md:gap-5 lg:gap-10">
               <div className="flex gap-2">
                 <p className="font-bold">Data de lançamento: </p>

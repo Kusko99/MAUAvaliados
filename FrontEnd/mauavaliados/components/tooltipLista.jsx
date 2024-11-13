@@ -5,14 +5,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const TooltipLista = ({ children, text, isLeft }) => {
+const TooltipLista = ({ children, text, isLeft, isRight }) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
           <div>{children}</div>
         </TooltipTrigger>
-        <TooltipContent side={isLeft ? "left" : "top"}>
+        <TooltipContent side={isLeft ? "left" : isRight ? "right" : "top"}>
           <p>{text}</p>
         </TooltipContent>
       </Tooltip>
