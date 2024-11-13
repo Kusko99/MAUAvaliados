@@ -6,6 +6,7 @@ import the_witcher from "../public/the_witcher_cover.png";
 import tlou from "../public/tlou.png";
 import Image from "next/image";
 import Link from "next/link";
+import { Options } from "./options";
 
 const Lista = ({}) => {
   const covers = [
@@ -47,17 +48,7 @@ const Lista = ({}) => {
         <div className="flex flex-col bg-[#2d2d2d] justify-around rounded-md p-3 md:p-6 cursor-pointer gap-5">
           <div className="flex flex-row justify-between">
             <p className="text-lg font-bold">Jogos Top!!!</p>
-            <div className="flex flex-row gap-4">
-              <TooltipLista text={"Editar Lista"}>
-                <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
-              </TooltipLista>
-              <TooltipLista text={"Excluir Lista"}>
-                <FaRegTrashCan
-                  size={"22px"}
-                  className="hover:text-[#E1005E] transition"
-                />
-              </TooltipLista>
-            </div>
+            <Options />
           </div>
           <div className="flex flex-row justify-between overflow-hidden gap-4">
             {covers.map((cover, index) => (

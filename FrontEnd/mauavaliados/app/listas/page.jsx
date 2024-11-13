@@ -3,7 +3,11 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import Lista from "@/components/lista";
+<<<<<<< Updated upstream
 import PlaceholderNoItems from "@/components/placeholderNoItems";
+=======
+import { CreateList } from "@/components/createList";
+>>>>>>> Stashed changes
 
 export default function Listas() {
   return (
@@ -14,9 +18,7 @@ export default function Listas() {
           <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
             <p className="md:text-3xl text-2xl font-semibold">Listas</p>
             <div>
-              <Button className="bg-[#2d2d2d] text-[#FFAE00] mt-2 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full">
-                Nova lista
-              </Button>
+              <CreateList />
             </div>
           </div>
           <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-4">

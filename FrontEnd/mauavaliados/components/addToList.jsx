@@ -34,7 +34,7 @@ const AddToList = ({ children, isLeft, isRight }) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-[#2d2d2d] text-white border-none">
         <DropdownMenuLabel>Adicionar à lista</DropdownMenuLabel>
-        <DropdownMenuSeparator className="" />
+        <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem
           checked={showStatusBar}
           onCheckedChange={setShowStatusBar}

@@ -8,6 +8,7 @@ import { FaTrophy } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import Link from "next/link";
 import { MdGames } from "react-icons/md";
+import AddToList from "./addToList";
 
 const GameDetailsSmall = ({
   children,
@@ -68,7 +69,7 @@ const GameDetailsSmall = ({
             </p>
           </div>
         </div>
-        <div className="max-w-48">
+        <div className="flex flex-col max-w-48">
           <Image
             src={cover}
             layout="responsive"
@@ -89,10 +90,12 @@ const GameDetailsSmall = ({
               Trailer
             </Button>
           </Link>
-          <Button className="bg-[#2d2d2d] text-[#FFAE00] rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full mt-1">
-            <MdGames size={"1.5rem"} />
-            Adicionar à lista
-          </Button>
+          <AddToList isLeft className="w-full">
+            <Button className="flex justify-start bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full mt-1">
+              <MdGames size={"1.5rem"} />
+              Adicionar à lista
+            </Button>
+          </AddToList>
         </div>
       </div>
       <div className="flex flex-col gap-2">
