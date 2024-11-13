@@ -2,6 +2,7 @@ import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import MinhaReview from "@/components/minhaReview";
+import PlaceholderNoItems from "@/components/placeholderNoItems";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
 
 export default function MinhasReviews() {

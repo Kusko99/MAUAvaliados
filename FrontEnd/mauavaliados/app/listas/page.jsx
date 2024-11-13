@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import Lista from "@/components/lista";
+import PlaceholderNoItems from "@/components/placeholderNoItems";
 
 export default function Listas() {
   return (
