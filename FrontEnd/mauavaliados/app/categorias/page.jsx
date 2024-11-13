@@ -2,10 +2,44 @@ import { SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import GameCardCategory from "@/components/gameCardCategory";
-import Link from "next/link";
-import the_witcher_cover from "../../public/the_witcher_cover.png";
+import super_smash from "../../public/super_smash.png";
+import the_witcher from "../../public/the_witcher_cover.png";
+import tlou from "../../public/tlou.png";
 
 export default function Categorias() {
+  const covers = [
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+    super_smash,
+    the_witcher,
+    tlou,
+  ];
+
   return (
     <SignedIn>
       <Navbar />
@@ -16,108 +50,9 @@ export default function Categorias() {
           </div>
           <div className="flex flex-col mb-12 mt-4">
             <div className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 mx-5 md:mx-12 justify-between gap-4 place-items-center">
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
-              <Link href="/game">
-                <GameCardCategory
-                  cover={the_witcher_cover}
-                  className="items-center justify-center "
-                />
-              </Link>
+              {covers.map((cover, index) => (
+                <GameCardCategory cover={cover} key={index} />
+              ))}
             </div>
           </div>
         </div>
