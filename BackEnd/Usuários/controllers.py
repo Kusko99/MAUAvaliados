@@ -38,6 +38,7 @@ class UserController:
     def update_user(self,user_id: str, user_data: dict) -> dict:
         "Controller de atualização de um usuário"
         update_user = UserDB().update_user(user_id, user_data)
+        barramento().publish("UserUpdated", update_user)
         return update_user
     
     def delete_user(self, user_id: str) -> dict:
