@@ -1,4 +1,4 @@
-from connector import db, User
+from connector import db, User, UserList, ListGame
 
 
 class UserDB:
@@ -54,3 +54,12 @@ class UserDB:
         except Exception as e:
             db.session.rollback()  
             return {"error": f"Erro ao deletar usuário: {str(e)}"}
+        
+    def create_list(self, list: UserList):
+        "Função para criar uma lista de jogos"
+        try:
+            db.session.add(list)
+            db.session.commit()
+            return list.to_dict()
+        except Exception as e:
+            return {"error": f"Erro ao criar lista de jogos: {str(e)}"}

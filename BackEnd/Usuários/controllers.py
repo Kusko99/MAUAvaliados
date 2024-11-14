@@ -1,6 +1,7 @@
 from database import UserDB
-from connector import User
+from connector import User, ListGame, UserList
 from barramento import barramento
+from uuid import uuid4
 
 class UserController:
     def __init__(self):
@@ -42,5 +43,25 @@ class UserController:
     def delete_user(self, user_id: str) -> dict:
         "Controller de exclusão de um usuário"
         response = UserDB().delete_user(user_id)
+        barramento().publish("UserCreated", {"user_id": user_id})
         return response
+    
+    def create_list(self, user_id: str, data: dict) -> str:
+        "Controller de criação de uma lista de jogos"
+        list_id = str(uuid4())
+        list = {
+            "id": list_id,
+            "user_id": user_id,
+            "name": data["name"],
+            "description": data["description"],
+        }
+        db_list = UserList(
+            id = list["id"], 
+            id_user = list["user_id"],
+            name = list["name"],
+            description = list["description"]
+        )
+        UserDB().create_list(db_list)
+        return list_id
+        
     
