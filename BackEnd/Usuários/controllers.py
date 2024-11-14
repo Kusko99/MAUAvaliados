@@ -43,7 +43,7 @@ class UserController:
     def delete_user(self, user_id: str) -> dict:
         "Controller de exclusão de um usuário"
         response = UserDB().delete_user(user_id)
-        barramento().publish("UserCreated", {"user_id": user_id})
+        barramento().publish("UserDeleted", {"user_id": user_id})
         return response
     
     def create_list(self, user_id: str, data: dict) -> str:
