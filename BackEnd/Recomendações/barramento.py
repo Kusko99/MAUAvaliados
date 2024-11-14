@@ -1,5 +1,6 @@
 import pika
 import json
+from controllers import RecomendaController
 
 class barramento:
     def event(self,type:str,body:dict)->dict:
@@ -33,5 +34,11 @@ class barramento:
     def event_handler(self, ch, method, properties, body):
         "Metodo para lidar com os eventos recebidos"
         event = json.loads(body)
+        if event.type == "UserCreated":
+            RecomendaController().create_usuario(event.body)
+        elif event.type == "AvaliacaoCreated":
+            RecomendaController().create_aval(event.body)
+        elif event.type == "UserDeleted":
+            RecomendaController().delete_usuario(event.body)
         print(event)
 

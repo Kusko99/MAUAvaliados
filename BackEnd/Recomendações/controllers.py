@@ -17,39 +17,38 @@ class RecomendaController:
         recomendacao = dumps(dic)
         return recomendacao
     
-    def create_usuario(self, id: str) -> dict:
-        "Controller para criar usuario no banco"
-        usuario = RecomendaDB().create_usuario(id)
-        return usuario
+    def create_usuario(self, user:dict):
+        "Controller para criar usuário"
+        RecomendaDB().create_usuario(user)       
     
-    def delete_usuario(self, id: str) -> dict:
+    def delete_usuario(self, user:dict):
         "Controller para deletar usuario no banco"
-        saida = RecomendaDB().delete_usuario(id)
+        saida = RecomendaDB().delete_usuario(user)
         retorno = dumps(saida)
         return retorno
     
-    def create_aval(self, id_user: str, id_game: str, id_aval: str, nota: float) -> dict:
+    def create_aval(self, body:dict):
         "Controller para criar aval"
-        if nota >= 6:
-            saida = RecomendaDB().create_aval(id_user,id_game, id_aval)
+        if body["aval_nota"] >= 6:
+            saida = RecomendaDB().create_aval(body)
         else:
             saida = {"Nota muito baixa, não serão recomendados jogos parecidos"}
         retorno = dumps(saida)
         return retorno
     
-    def edit_aval (self, id_user: str, id_game: str, id_aval: str, nota: float) -> dict:
+    def edit_aval (self, body):
         "Controller para editar aval"
-        checagem = RecomendaDB().get_aval(id_aval)
-        if nota >= 6:
+        checagem = RecomendaDB().get_aval(body)
+        if body["aval_nota"] >= 6:
             if len(checagem) == 0:
-                saida = RecomendaDB().create_aval(id_user,id_game)
+                saida = RecomendaDB().create_aval(body)
             else:  
                 saida = {"Avaliacao ja existe no banco"}
         else:
             if len(checagem) == 0:
                 saida = {"Nota muito baixa, avaliacao apagada"}
             else:  
-                saida = RecomendaDB().delete_aval(id_user,id_game)
+                saida = RecomendaDB().delete_aval(body)
         retorno = dumps(saida)
         return retorno
     

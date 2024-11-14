@@ -25,14 +25,14 @@ class RecomendaDB:
         except Exception as e:
             return {"error": f"Erro ao coletar recomendacoes: {str(e)}"}
     
-    def create_usuario(self, id):
+    def create_usuario(self, user):
         entrada1 = 'CREATE (:person {'
-        entrada2 = f'id: "{id}"'
+        entrada2 = f'id: "{user["id"]}"'
         entrada3 = '})'
         entrada = entrada1 + entrada2 + entrada3
         try:
             self.query(entrada)
-            result = self.query(f'''MATCH (a) WHERE a.id="{id}" RETURN a''')
+            result = self.query(f'''MATCH (a) WHERE a.id="{user["id"]}" RETURN a''')
             for record in result:
                 resultado = dumps(record.data()["a"])
             return resultado
@@ -40,41 +40,41 @@ class RecomendaDB:
             return {"error": f"Erro ao criar usuário: {str(e)}"}
             
     
-    def delete_usuario(self, id):
+    def delete_usuario(self, user):
         try:
-            self.query(f'MATCH (a)-[n:JOGOU]->() WHERE a.id="{id}" DELETE n')
-            self.query(f'MATCH (a) WHERE a.id="{id}" DELETE a')
+            self.query(f'MATCH (a)-[n:JOGOU]->() WHERE a.id="{user["user_id"]}" DELETE n')
+            self.query(f'MATCH (a) WHERE a.id="{user["user_id"]}" DELETE a')
             return {"message": "Usuário deletado com sucesso!"}
         except Exception as e:
             return {"error": f"Erro ao deletarusuário: {str(e)}"}
         
-    def create_aval(self, id_user, id_game, id_aval):
+    def create_aval(self,body):
         try:
-            self.query(f'MATCH (a:person),(b:GAME) WHERE a.id="{id_user}" AND b.id="{id_game}" CREATE (a)-[n:JOGOU]->(b) SET n.id="{id_aval}"')
+            self.query(f'MATCH (a:person),(b:GAME) WHERE a.id="{body["id_user"]}" AND b.id="{body["id_game"]}" CREATE (a)-[n:JOGOU]->(b) SET n.id="{body["id"]}"')
             return {"message": "Avaliacao criada com sucesso!"}
         except Exception as e:
             return {"error": f"Erro ao criar avaliacao: {str(e)}"}
         
-    def delete_aval(self, id_user, id_game):
+    def delete_aval(self, body):
         try:
-            self.query(f'MATCH (a:person)-[r:JOGOU]->(b:GAME) WHERE a.id="{id_user}" AND b.id="{id_game}" DELETE r ')
+            self.query(f'MATCH ()-[r:JOGOU]->() WHERE r.id="{body["id"]}" DELETE r ')
             return {"message": "Avaliacao deletada com sucesso!"}
         except Exception as e:
             return {"error": f"Erro ao deletar avaliacao: {str(e)}"}
         
-    def get_aval(self, id_aval):
+    def get_aval(self, body):
         try:
-            a = self.query(f'MATCH ()-[n:JOGOU]->() WHERE n.id="{id_aval}" RETURN n')
+            a = self.query(f'MATCH ()-[n:JOGOU]->() WHERE n.id="{body["id"]}" RETURN n')
             return  a
         except Exception as e:
             return {"error": f"Erro ao buscar avaliacao: {str(e)}"}
 
-    uri = "neo4j+s://bd4734be.databases.neo4j.io"
+    uri = "neo4j+ssc://bd4734be.databases.neo4j.io"
     user = "neo4j"
     password = "yTLZZOMbu_IzqJFwlBvtXMkp6FUvsFaY_hobmdZft_E"
 
 conn = RecomendaDB()
-print(conn.get_aval(5))
+print(conn.get_recomendacao_by_id(1))
 
 
 
