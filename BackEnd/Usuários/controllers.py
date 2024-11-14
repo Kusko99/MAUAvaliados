@@ -60,7 +60,8 @@ class UserController:
             id = list["id"], 
             id_user = list["user_id"],
             name = list["name"],
-            description = list["description"]
+            description = list["description"],
+            quantidade = 0
         )
         response = UserDB().create_list(db_list)
         if response.get("error"):
@@ -78,4 +79,5 @@ class UserController:
             id_jogo = listgame["id_jogo"]
         )
         response = UserDB().add_game_to_list(db_listgame)
+        UserDB().updateQuantidade(list_id)
         return response
