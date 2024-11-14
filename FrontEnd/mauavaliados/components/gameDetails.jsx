@@ -105,7 +105,7 @@ const GameDetails = ({
                 </div>
               </div>
             </div>
-            <div className="">
+            <div>
               <AddToList isRight>
                 <Button className="flex justify-start bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-40">
                   <MdGames size={"1.5rem"} />

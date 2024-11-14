@@ -21,12 +21,12 @@ export default function DetalhesLista() {
           <div className="flex flex-row justify-end mx-5 md:mx-12">
             <div className="-mt-12 absolute flex flex-row gap-4">
               <TooltipLista text={"Editar Lista"}>
-                <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
+                <FaRegEdit size={"22px"} className="cursor-pointer hover:text-[#8C00FF]" />
               </TooltipLista>
               <TooltipLista text={"Excluir Lista"}>
                 <FaRegTrashCan
                   size={"22px"}
-                  className="hover:text-[#E1005E] transition"
+                  className="cursor-pointer hover:text-[#E1005E] transition"
                 />
               </TooltipLista>
             </div>

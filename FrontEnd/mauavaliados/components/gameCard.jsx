@@ -11,7 +11,7 @@ const GameCard = ({ cover }) => {
         <Image src={cover} className="absolute h-full w-full" />
         <div className="flex flex-col h-full">
           <div className="relative text-black top-0 flex justify-end pt-2 pr-2">
-            <AddToList />
+            <AddToList isLeft />
           </div>
           <Link href={"/game"} className="h-full">
             <div className="relative font-bold h-full items-end flex">

@@ -60,9 +60,24 @@ class UserController:
             id = list["id"], 
             id_user = list["user_id"],
             name = list["name"],
-            description = list["description"]
+            description = list["description"],
+            quantidade = 0
         )
-        UserDB().create_list(db_list)
-        return list_id
-        
+        response = UserDB().create_list(db_list)
+        if response.get("error"):
+            return response
+        return {"id": list_id}
     
+    def add_game_to_list(self, list_id: str, game_id: str) -> str:    
+        "Controller de adição de um jogo a uma lista de jogos"
+        listgame = {
+            "id_list": list_id,
+            "id_jogo": game_id
+        }
+        db_listgame = ListGame(
+            id_list = listgame["id_list"],
+            id_jogo = listgame["id_jogo"]
+        )
+        response = UserDB().add_game_to_list(db_listgame)
+        UserDB().updateQuantidade(list_id)
+        return response

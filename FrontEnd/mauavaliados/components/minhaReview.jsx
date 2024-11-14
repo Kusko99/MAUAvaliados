@@ -7,6 +7,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import ModalMinhaReview from "./modalMinhaReview";
 import Link from "next/link";
+import { Options } from "./options";
 
 const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -46,6 +47,7 @@ const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
                 <p className="font-bold">{nota}</p>
                 <FaTrophy />
               </div>
+              <Options />
             </div>
           </div>
           <p className="line-clamp-3 text-start">{review}</p>

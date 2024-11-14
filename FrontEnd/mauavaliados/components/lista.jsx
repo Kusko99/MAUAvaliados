@@ -6,63 +6,52 @@ import the_witcher from "../public/the_witcher_cover.png";
 import tlou from "../public/tlou.png";
 import Image from "next/image";
 import Link from "next/link";
+import { Options } from "./options";
 
 const Lista = ({}) => {
   const covers = [
     super_smash,
     the_witcher,
     tlou,
+    the_witcher,
     super_smash,
     the_witcher,
     tlou,
-    super_smash,
     the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
-    super_smash,
-    the_witcher,
-    tlou,
     super_smash,
     the_witcher,
     tlou,
   ];
 
+  // Add skeleton placeholders if covers length is less than 6
+  const totalCovers =
+    covers.length < 7
+      ? [...covers, ...Array(7 - covers.length).fill(null)]
+      : covers;
+
   return (
     <Link href={"/detalhes-lista"}>
-      <div className=" rounded-sm p-[1.2px] transition bg-gradient-to-t hover:from-[#8c00ff] hover:to-[#2a0747]">
+      <div className="rounded-sm p-[1.2px] transition bg-gradient-to-t hover:from-[#8c00ff] hover:to-[#2a0747]">
         <div className="flex flex-col bg-[#2d2d2d] justify-around rounded-md p-3 md:p-6 cursor-pointer gap-5">
           <div className="flex flex-row justify-between">
             <p className="text-lg font-bold">Jogos Top!!!</p>
-            <div className="flex flex-row gap-4">
-              <TooltipLista text={"Editar Lista"}>
-                <FaRegEdit size={"22px"} className="hover:text-[#8C00FF]" />
-              </TooltipLista>
-              <TooltipLista text={"Excluir Lista"}>
-                <FaRegTrashCan
-                  size={"22px"}
-                  className="hover:text-[#E1005E] transition"
-                />
-              </TooltipLista>
-            </div>
+            <Options />
           </div>
           <div className="flex flex-row justify-between overflow-hidden gap-4">
-            {covers.map((cover, index) => (
-              <Image key={index} src={cover} className="w-20 rounded-sm" />
-            ))}
+            {totalCovers.map((cover, index) =>
+              cover ? (
+                <Image
+                  key={index}
+                  src={cover}
+                  className="w-20 h-28 rounded-sm"
+                />
+              ) : (
+                <div
+                  key={index}
+                  className="min-w-20 h-28 bg-[#4d4d4d] rounded-sm animate-pulse overflow-hidden"
+                ></div>
+              )
+            )}
           </div>
           <div>
             <p className="line-clamp-2">
