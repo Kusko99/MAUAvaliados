@@ -74,3 +74,16 @@ class UserDB:
             db.session.rollback()  
             return {"error": f"Erro ao adicionar jogo a lista de jogos: {str(e)}"}
     
+    def updateQuantidade(self, list_id: str):
+        "Função para atualizar a quantidade de jogos em uma lista de jogos"
+        try:
+            list = db.session.query(UserList).filter_by(id=list_id).first()
+            if not list:
+                return {"error": "Lista de jogos nao encontrada."}
+            list.quantidade += 1
+            db.session.commit()
+            return list.to_dict()
+        except Exception as e:
+            db.session.rollback()  
+            return {"error": f"Erro ao atualizar quantidade de jogos: {str(e)}"}
+    

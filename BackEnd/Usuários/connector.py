@@ -50,6 +50,7 @@ class UserList(db.Model):
     id_user = db.Column(db.String(255), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
+    quantidade = db.Column(db.Integer, nullable=False)
 
     def to_dict(self):
         """Converte o objeto User para um dicionário."""
