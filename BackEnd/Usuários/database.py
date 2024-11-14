@@ -63,3 +63,14 @@ class UserDB:
             return list.to_dict()
         except Exception as e:
             return {"error": f"Erro ao criar lista de jogos: {str(e)}"}
+        
+    def add_game_to_list(self, game: ListGame):
+        "Função para adicionar um jogo a uma lista de jogos"
+        try:
+            db.session.add(game)
+            db.session.commit()
+            return {"message": "Jogo adicionado a lista de jogos com sucesso!"}
+        except Exception as e:
+            db.session.rollback()  
+            return {"error": f"Erro ao adicionar jogo a lista de jogos: {str(e)}"}
+    

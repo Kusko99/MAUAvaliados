@@ -46,10 +46,17 @@ def create_list(user_id:str):
 
     if not data:
         return jsonify({"message": "No input data provided"}), 400
-    list_id = UserController().create_list(user_id,data)
+    response = UserController().create_list(user_id,data)
+    if response.get("error"):
+        return response, 400
+    list_id = response["id"]
     return {"list_id": list_id}, 200
 
 
-@users_routes.route("/users/list/add_game/<list_id>/<user_id>/<game_id>", methods=["POST"])
-def get_all_users(user_id:str, game_id:str):
+@users_routes.route("/users/list/add_game/<list_id>/<game_id>", methods=["POST"])
+def get_all_users(list_id:str, game_id:str):
     "Rota para o usuário adicionar um jogo a sua lista de jogos"
+    response = UserController().add_game_to_list(list_id,game_id)
+    if response.get("error"):
+        return response, 400
+    return response, 200
