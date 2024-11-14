@@ -39,6 +39,24 @@ def delete_user(user_id:str):
         return response, 400
     return response, 200
 
-@users_routes.route("/test", methods=["GET"])
-def test():
-    return {"message": "Raul onde está o homesexualismo?!??!"}
+@users_routes.route("/users/list/<user_id>", methods=["POST"])
+def create_list(user_id:str):
+    "Rota para o usuário ver suas listas de jogos"
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"message": "No input data provided"}), 400
+    response = UserController().create_list(user_id,data)
+    if response.get("error"):
+        return response, 400
+    list_id = response["id"]
+    return {"list_id": list_id}, 200
+
+
+@users_routes.route("/users/list/add_game/<list_id>/<game_id>", methods=["POST"])
+def get_all_users(list_id:str, game_id:str):
+    "Rota para o usuário adicionar um jogo a sua lista de jogos"
+    response = UserController().add_game_to_list(list_id,game_id)
+    if response.get("error"):
+        return response, 400
+    return response, 200
