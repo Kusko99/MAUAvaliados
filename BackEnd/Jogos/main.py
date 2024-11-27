@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 def consumer():
     try:
-        print("Hello")
         barramento().recive()
     except KeyboardInterrupt:
         try:
