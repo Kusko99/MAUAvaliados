@@ -36,4 +36,18 @@ class AvaliacaoDB :
             return {"avaliações": resp}
         except Exception as e:
             return {"error": f"Erro ao buscar avaliação: {str(e)}"}
-        
+
+    def delete_aval(self, id: str):
+        "função de deletar avaliação"
+        try:
+            aval = db.session.query(Aval).filter_by(id=id).first()
+            if not aval:
+                return {"error": "Avaliação não encontrada"}
+
+            db.session.delete(aval)
+            db.session.commit()
+            return {"message": "Usuário deletado com sucesso!"}
+        except Exception as e:
+            db.session.rollback()
+            return {"error": f"Erro ao deletar avaliações: {str(e)}"}
+            
