@@ -21,11 +21,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "./ui/textarea";
 import { FaTrophy } from "react-icons/fa";
-
+import { useToast } from "../hooks/use-toast";
 
 export function AddReview() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const { toast } = useToast();
+
+  const onsubmit = (e) => {
+    e.preventDefault();
+    toast({
+      title: "Review adicionada",
+      description: "Sua review foi adicionada com sucesso!",
+    });
+  };
 
   if (isDesktop) {
     return (
@@ -95,6 +104,7 @@ function ReviewForm({ className }) {
       <Button
         type="submit"
         className="bg-[#8c00ff] text-white mt-2 rounded-sm hover:bg-[#8c00ff] hover:brightness-90 transition hover:text-white font-bold gap-2 text-md"
+        onsubmit={onsubmit}
       >
         Salvar
       </Button>

@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import WhereToPlay from "@/components/whereToPlay";
-import { FaSteam } from "react-icons/fa";
-import { FaPlaystation } from "react-icons/fa";
-import { FaXbox } from "react-icons/fa";
+// import WhereToPlay from "@/components/whereToPlay";
+// import { FaSteam } from "react-icons/fa";
+// import { FaPlaystation } from "react-icons/fa";
+// import { FaXbox } from "react-icons/fa";
 import { FaTrophy } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import Link from "next/link";
@@ -149,25 +149,16 @@ const GameDetails = ({
                 ))}
               </div>
               <p className="font-bold text-lg pt-3">Onde jogar</p>
-              <div className="flex flex-row gap-8 pt-2">
-                <WhereToPlay tooltipContent={<p>Steam</p>}>
-                  <FaSteam
-                    size={"2em"}
-                    className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-                  />
-                </WhereToPlay>
-                <WhereToPlay tooltipContent={<p>Playstation</p>}>
-                  <FaPlaystation
-                    size={"2em"}
-                    className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-                  />
-                </WhereToPlay>
-                <WhereToPlay tooltipContent={<p>Xbox</p>}>
-                  <FaXbox
-                    size={"2em"}
-                    className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-                  />
-                </WhereToPlay>
+              <div className="flex flex-row gap-2 pt-2">
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
+                  <p>Steam</p>
+                </div>
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
+                  <p>Playstation</p>
+                </div>
+                <div className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer">
+                  <p>Xbox</p>
+                </div>
               </div>
             </div>
           </div>
