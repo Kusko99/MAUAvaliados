@@ -24,3 +24,11 @@ def get_aval_by_id_jogo(id_jogo:str):
     "rota ppara buscar uma avaliação pelo id do jogo"
     data = AvaliacaoController().get_aval_by_id_jogo(id_jogo)
     return data, 200
+
+@avaliacao_routes.route("/aval/<id>", methods=["DELETE"])
+def delete_aval(id:str):
+    "Rota para deletar uma avaliação"
+    response = AvaliacaoController().delete_aval(id)
+    if response.get("error"):
+        return response, 400
+    return response, 200

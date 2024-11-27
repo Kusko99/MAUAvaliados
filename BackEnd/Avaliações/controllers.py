@@ -29,3 +29,9 @@ class AvaliacaoController:
         "Controller de puxar uma avaliação pelo id do jogo"
         aval = AvaliacaoDB().get_aval_by_id_jogo(id_jogo)
         return aval
+    
+    def delete_aval(self, id: str) -> dict:
+        "Controller de exclusão de uma avaliação"
+        response = AvaliacaoDB().delete_aval(id)
+        barramento().publish("AvaliaçãoDeleted", {"aval_id": id})
+        return response
