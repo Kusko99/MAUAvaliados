@@ -6,10 +6,10 @@ const { userId } = auth();
 async function fetchUser(userId) {
   try {
     const user = await clerkClient().users.getUser(userId);
-    console.log(user.emailAddresses);
+    console.log(user);
 
     // Send the user data to the specified route
-    const response = await fetch("http://127.0.0.1:7000/users", {
+    const response = await fetch("http://127.0.0.1:7051/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -16,7 +16,6 @@ const lato = Lato({ weight: ["300", "400", "700"], subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       className
       localization={ptBR}
       appearance={{

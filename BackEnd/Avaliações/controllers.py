@@ -16,7 +16,7 @@ class AvaliacaoController:
             aval_escrita=aval["aval_escrita"],
             aval_nota=aval["aval_nota"],
         )
-        barramento().publish("AvaliacaoCreated", db_aval.to_dict())
+        # barramento().publish("AvaliacaoCreated", db_aval.to_dict())
         aval = AvaliacaoDB().create_aval(db_aval)
         return aval
     
