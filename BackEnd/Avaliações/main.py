@@ -4,19 +4,28 @@ from barramento import barramento
 from threading import Thread
 import os, sys
 from connector import db, init_db
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+# CORS(
+#     app,
+#     resources={r"/*": {"origins": "http://localhost:3000"}},
+#     supports_credentials=True,  # Se você usar cookies ou autenticação
+#     expose_headers=["Content-Type", "Authorization"],  # Exponha cabeçalhos necessários
+# )
 
-def consumer():
-    try:
-        print("Hello")
-        barramento().recive()
-    except KeyboardInterrupt:
-        try:
-            sys.exit(0)
-        except SystemExit:
-            os._exit(0)
+# CORS(app)
+
+# def consumer():
+#     try:
+#         print("Hello")
+#         barramento().recive()
+#     except KeyboardInterrupt:
+#         try:
+#             sys.exit(0)
+#         except SystemExit:
+#             os._exit(0)
 
 def main():
     #Importando as rotas
@@ -27,8 +36,8 @@ def main():
     
 
 if __name__ == '__main__':
-    consumer_thread = Thread(target=consumer)
-    consumer_thread.start()
+    # consumer_thread = Thread(target=consumer)
+    # consumer_thread.start()
 
     main()
-    app.run(port=6000, debug=True)
+    app.run(port=6051, debug=True)
