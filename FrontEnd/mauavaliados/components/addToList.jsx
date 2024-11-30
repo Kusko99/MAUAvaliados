@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "../hooks/use-toast";
 
-const AddToList = ({ children, isLeft, isRight }) => {
+const AddToList = ({ children, isLeft, isRight, isDesktop }) => {
   const [showStatusBar, setShowStatusBar] = React.useState(true);
   const [showActivityBar, setShowActivityBar] = React.useState(false);
   const [showPanel, setShowPanel] = React.useState(false);
@@ -31,7 +31,7 @@ const AddToList = ({ children, isLeft, isRight }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div>
+        <div className={isDesktop ? "w-min" : ""}>
           <TooltipLista
             isLeft={isLeft ? true : false}
             isRight={isRight ? true : false}
