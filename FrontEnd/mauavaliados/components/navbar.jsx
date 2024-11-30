@@ -8,7 +8,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 const Navbar = () => {
   return (
     <div className="flex items-center justify-around pt-2 pb-2 bg-black/30 shadow-inner text-white fixed top-0 left-0 right-0 z-50">
-      <SidebarTrigger />
+      <SidebarTrigger className="md:hidden"/>
       <Link href={"/"}>
                <Image
           src={logo}

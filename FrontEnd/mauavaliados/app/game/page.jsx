@@ -7,6 +7,8 @@ import the_witcher_cover from "../../public/the_witcher_cover.png";
 import Review from "@/components/review";
 import GameDetails from "@/components/gameDetails";
 import { AddReview } from "@/components/addReview";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 // #8C00FF
 // #FFAE00
@@ -15,6 +17,9 @@ import { AddReview } from "@/components/addReview";
 export default function Game() {
   return (
     <SignedIn>
+      <SidebarProvider>
+      <AppSidebar />
+      <div className="relative z-10">
       <Navbar />
       <div className="relative w-full">
         <Image src={the_witcher} className="w-full h-auto object-cover z-0" />
@@ -66,6 +71,8 @@ export default function Game() {
           </div>
         </div>
       </div>
+      </div>
+      </SidebarProvider>
       <Footer />
     </SignedIn>
   );

@@ -91,7 +91,7 @@ const GameDetailsSmall = ({
             </Button>
           </Link>
           <AddToList isLeft className="w-full">
-            <Button className="flex justify-start bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full mt-1">
+            <Button className="flex justify-center bg-[#2d2d2d] text-[#FFAE00]  rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full mt-1">
               <MdGames size={"1.5rem"} />
               Adicionar à lista
             </Button>

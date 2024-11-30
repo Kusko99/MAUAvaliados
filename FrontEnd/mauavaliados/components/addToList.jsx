@@ -31,7 +31,7 @@ const AddToList = ({ children, isLeft, isRight }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="w-min">
+        <div>
           <TooltipLista
             isLeft={isLeft ? true : false}
             isRight={isRight ? true : false}
