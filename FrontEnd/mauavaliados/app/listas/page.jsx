@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button";
 import Lista from "@/components/lista";
 import { CreateList } from "@/components/createList";
 import PlaceholderNoItems from "@/components/placeholderNoItems";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export default function Listas() {
   return (
     <SignedIn>
+    <SidebarProvider>
+    <AppSidebar />
       <Navbar />
       <div className="flex max-w-7xl mx-auto flex-col items-center ">
         <div className="mt-24 w-full">
@@ -28,6 +32,7 @@ export default function Listas() {
           </div>
         </div>
       </div>
+    </SidebarProvider>
       <Footer />
     </SignedIn>
   );

@@ -5,6 +5,8 @@ import GameCardCategory from "@/components/gameCardCategory";
 import super_smash from "../../public/super_smash.png";
 import the_witcher from "../../public/the_witcher_cover.png";
 import tlou from "../../public/tlou.png";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export default function Categorias() {
   const covers = [
@@ -42,6 +44,8 @@ export default function Categorias() {
 
   return (
     <SignedIn>
+    <SidebarProvider>
+    <AppSidebar />
       <Navbar />
       <div className="flex max-w-7xl mx-auto flex-col items-center ">
         <div className="mt-24 w-full">
@@ -57,6 +61,7 @@ export default function Categorias() {
           </div>
         </div>
       </div>
+    </SidebarProvider>
       <Footer />
     </SignedIn>
   );

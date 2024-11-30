@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Image from "next/image";
 import the_witcher from "../public/the_witcher.png";
+import { SidebarProvider} from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
 
 import Carrossel from "@/components/carrossel";
 
@@ -13,6 +15,8 @@ export default function Home() {
     // #8C00FF
     // #FFAE00
     // #E1005E
+    <SidebarProvider>
+    <AppSidebar />
     <main className="min-h-screen relative">
       <SignedIn>
         <Navbar />
@@ -35,5 +39,6 @@ export default function Home() {
         <Footer />
       </SignedIn>
     </main>
+    </SidebarProvider>
   );
 }

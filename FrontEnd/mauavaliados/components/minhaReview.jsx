@@ -17,7 +17,7 @@ const MinhaReview = ({ review, game_name, nota, likes, data, cover }) => {
   };
   return (
     <div className="flex flex-row gap-2">
-      <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
+      <div className="hidden md:block rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
         <div className="group relative w-40 h-full rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
           <Image
             src={cover}

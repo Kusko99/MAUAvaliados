@@ -5,6 +5,8 @@ import { FiSearch } from "react-icons/fi";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import SearchGenre from "@/components/search_genre";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 // #8C00FF
 // #FFAE00
@@ -28,8 +30,10 @@ export default function Pesquisar() {
 
   return (
     <SignedIn>
+    <SidebarProvider>
+    <AppSidebar />
       <Navbar />
-      <div className="flex flex-col max-w-7xl mx-auto mb-12">
+      <div className="flex flex-col w-[1280px] mx-auto mb-12">
         <div className="relative mx-5 md:mx-12 mt-24">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <FiSearch className="w-6 h-6" />
@@ -69,6 +73,7 @@ export default function Pesquisar() {
           </Button>
         </div>
       </div>
+    </SidebarProvider>
       <Footer />
     </SignedIn>
   );
