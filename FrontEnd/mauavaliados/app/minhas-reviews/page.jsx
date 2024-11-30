@@ -1,36 +1,104 @@
-import { SignedIn } from "@clerk/nextjs";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useUser, SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import MinhaReview from "@/components/minhaReview";
-import PlaceholderNoItems from "@/components/placeholderNoItems";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
+async function fetchReviews(userId) {
+  try {
+    const response = await fetch(
+      `http://127.0.0.1:6051/aval/get_by_user/${userId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch reviews");
+    }
+
+    const data = await response.json();
+    return data["avaliações"] || [];
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    return [];
+  }
+}
+
 export default function MinhasReviews() {
+  const { user } = useUser();
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (user?.id) {
+      fetchReviews(user.id).then((data) => setReviews(data));
+    }
+  }, [user?.id]);
+
+  // Function to handle review deletion
+  const handleDelete = async (reviewId) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:6051/aval/${reviewId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Error deleting review: ${errorData.message}`);
+      }
+
+      // Remove the review from the state after successful deletion
+      setReviews((prevReviews) =>
+        prevReviews.filter((review) => review.id !== reviewId)
+      );
+
+      fetchReviews(user.id).then((data) => setReviews(data));
+    } catch (error) {
+      console.error("Error deleting review:", error);
+    }
+  };
+
   return (
     <SignedIn>
-    <SidebarProvider>
-    <AppSidebar />
-      <Navbar />
-      <div className="flex max-w-7xl mx-auto min-h-screen flex-col items-center ">
-        <div className="mt-24 w-full">
-          <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
-            <p className="md:text-3xl text-2xl font-semibold">Minhas Reviews</p>
-          </div>
-          <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-4">
-            <MinhaReview
-                cover={the_witcher_cover}
-                review={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"}
-                game_name={"The Witcher 3: Wild Hunt"}
-                nota={9.8}
-                likes={28}
-                data={"22/10/2024"}
-            />
+      <SidebarProvider>
+        <AppSidebar />
+        <Navbar />
+        <div className="flex max-w-7xl mx-auto min-h-screen flex-col items-center">
+          <div className="mt-24 w-full">
+            <div className="flex flex-row justify-between items-center mx-5 md:mx-12">
+              <p className="md:text-3xl text-2xl font-semibold">
+                Minhas Reviews
+              </p>
+            </div>
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-4">
+              {reviews.map((review) => (
+                <MinhaReview
+                  key={review.id}
+                  cover={the_witcher_cover}
+                  review={review.aval_escrita}
+                  game_name={"The Witcher 3: Wild Hunt"}
+                  nota={review.aval_nota}
+                  likes={20}
+                  data={"22/10/2024"}
+                  id={review.id}
+                  onDelete={handleDelete} // Pass the handleDelete function directly
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
       <Footer />
     </SignedIn>
   );
