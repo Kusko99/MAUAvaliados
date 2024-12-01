@@ -3,18 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo_principal.svg";
 import { UserButton } from "@clerk/nextjs";
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Navbar = () => {
   return (
     <div className="flex items-center justify-around pt-2 pb-2 bg-black/30 shadow-inner text-white fixed top-0 left-0 right-0 z-50">
-      <SidebarTrigger className="md:hidden"/>
+      <SidebarTrigger className="md:hidden" />
       <Link href={"/"}>
-               <Image
+        <Image
           src={logo}
           width={44}
           height={44}
           className="cursor-pointer transition ease-in-out hover:scale-105 hover:rotate-6 w-9 h-9 md:w-11 md:h-11"
+          alt="logo"
         />
       </Link>
       <div className="items-center justify-around w-2/4 md:flex hidden">

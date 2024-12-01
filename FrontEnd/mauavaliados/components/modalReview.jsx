@@ -13,7 +13,7 @@ import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
 
-const ModalReview = ({ show, handleClose, review }) => {
+const ModalReview = ({ show, handleClose, review, nota }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLikeClick = () => {
@@ -28,13 +28,22 @@ const ModalReview = ({ show, handleClose, review }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[600px] bg-[#1d1d1d] border-0 p-0 overflow-hidden">
         <DialogHeader className="">
-          <Image src={the_witcher} className="w-full h-auto object-cover" />
+          <Image
+            src={the_witcher}
+            className="w-full h-auto object-cover"
+            alt="cover"
+          />
         </DialogHeader>
         <div className="flex flex-col p-4 gap-4">
           <div className="gap-4">
             <div className="flex flex-row justify-between">
               <div className="flex flex-row gap-5 items-center">
-                <Image src={morty} width={48} className="rounded-full" />
+                <Image
+                  src={morty}
+                  width={48}
+                  className="rounded-full"
+                  alt="avatar"
+                />
                 <p className="font-bold">Rivian_Soldier</p>
               </div>
               <div className="flex flex-row gap-5">
@@ -50,30 +59,14 @@ const ModalReview = ({ show, handleClose, review }) => {
                   )}
                 </div>
                 <div className="flex flex-row gap-2 items-center">
-                  <p className="font-bold">10</p>
+                  <p className="font-bold">{nota}</p>
                   <FaTrophy />
                 </div>
               </div>
             </div>
           </div>
           <div className="overflow-y-scroll h-[300px] scrollbar-thin scrollbar-thumb-[#1d1d1d] scrollbar-track-[#2d2d2d] scrollbar-medium">
-            <p className="text-start">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Voluptatibus quasi magnam repellendus iure dolorem? Accusamus
-              sapiente ratione cupiditate inventore est quaerat accusantium iure
-              libero, ad exercitationem enim autem dolor totam! Lorem ipsum
-              dolor sit amet consectetur, adipisicing elit. Quod minus animi
-              illo, placeat, inventore eaque libero, officia veritatis impedit
-              quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi
-              nihil sint? Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Voluptatibus quasi magnam repellendus iure dolorem?
-              Accusamus sapiente ratione cupiditate inventore est quaerat
-              accusantium iure libero, ad exercitationem enim autem dolor totam!
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-              minus animi illo, placeat, inventore eaque libero, officia
-              veritatis impedit quae dicta repellendus odio molestiae? Dolorem
-              temporibus sit nisi nihil sint?
-            </p>
+            <p className="text-start">{review}</p>
           </div>
           <p className="text-sm text-start">Data: 22/10/2024</p>
         </div>

@@ -7,7 +7,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import ModalReview from "./modalReview";
 
-const Review = ({ review }) => {
+const Review = ({ review, nota, user, avatar }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLikeClick = () => {
@@ -18,8 +18,14 @@ const Review = ({ review }) => {
       <div className="flex flex-col bg-[#2d2d2d] h-60 justify-around rounded-md p-3 md:p-6 cursor-pointer ">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3 md:gap-5 items-center">
-            <Image src={morty} className="rounded-full w-8 md:w-12" />
-            <p className="font-bold">Rivian_Soldier</p>
+            <Image
+              src={avatar || morty}
+              width={40}
+              height={40}
+              className="rounded-full w-8 h-8 md:h-10 md:w-10 object-cover"
+              alt="avatar"
+            />
+            <p className="font-bold">{user}</p>
           </div>
           <div className="flex flex-row gap-3 md:gap-5">
             <div
@@ -34,18 +40,15 @@ const Review = ({ review }) => {
               )}
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <p className="font-bold">10</p>
+              <p className="font-bold">{nota}</p>
               <FaTrophy />
             </div>
           </div>
         </div>
         <p className="line-clamp-3 text-start">{review}</p>
-        <div
-          className="flex flex-row w-full justify-between items-center"
-          asChild
-        >
+        <div className="flex flex-row w-full justify-between items-center">
           <p className="text-sm text-start">Data: 22/10/2024</p>
-          <ModalReview />
+          <ModalReview review={review} nota={nota} />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import the_witcher from "../../public/the_witcher.png";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
 import Review from "@/components/review";
 import GameDetails from "@/components/gameDetails";
+import GameReviews from "@/components/gameReviews";
 import { AddReview } from "@/components/addReview";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -25,6 +26,7 @@ export default function Game() {
             <Image
               src={the_witcher}
               className="w-full h-auto object-cover z-0"
+              alt="cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
           </div>
@@ -49,28 +51,7 @@ export default function Game() {
                   <p className="font-bold text-lg">Reviews</p>
                   <AddReview />
                 </div>
-                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12">
-                  <Review
-                    review={
-                      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"
-                    }
-                  />
-                  <Review
-                    review={
-                      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"
-                    }
-                  />
-                  <Review
-                    review={
-                      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"
-                    }
-                  />
-                  <Review
-                    review={
-                      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibu quasi magnam repellendus iure dolorem? Accusamus sapiente ratione cupiditate inventore est quaerat accusantium iure libero, ad exercitationem enim autem dolor totam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minus animi illo, placeat, inventore eaque libero, officia veritatis impedit quae dicta repellendus odio molestiae? Dolorem temporibus sit nisi nihil sint?"
-                    }
-                  />
-                </div>
+                <GameReviews gameId={1} />
               </div>
             </div>
           </div>

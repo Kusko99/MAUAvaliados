@@ -62,6 +62,7 @@ const GameDetails = ({
                 width={300}
                 height={200}
                 className="rounded-sm"
+                alt="cover"
               />
             </div>
             <Link

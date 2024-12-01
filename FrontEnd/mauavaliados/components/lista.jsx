@@ -1,3 +1,4 @@
+"use client";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import TooltipLista from "@/components/tooltipLista";
@@ -6,9 +7,33 @@ import the_witcher from "../public/the_witcher_cover.png";
 import tlou from "../public/tlou.png";
 import Image from "next/image";
 import Link from "next/link";
-import { Options } from "./options";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const Lista = ({}) => {
+  const handleDeleteClick = () => {
+    if (window.confirm("Tem certeza que deseja deletar esta review?")) {
+      onDelete(id);
+
+      toast({
+        variant: "roxo",
+        title: "Review deletada com sucesso!",
+        description: "Sua review foi removida.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+
   const covers = [
     super_smash,
     the_witcher,
@@ -35,7 +60,31 @@ const Lista = ({}) => {
         <div className="flex flex-col bg-[#2d2d2d] justify-around rounded-md p-3 md:p-6 cursor-pointer gap-5">
           <div className="flex flex-row justify-between">
             <p className="text-lg font-bold">Jogos Top!!!</p>
-            <Options />
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <BsThreeDotsVertical
+                  size={"1.4rem"}
+                  className="hover:text-[#FFAE00] transition"
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-[#2d2d2d] text-white border-none">
+                <DropdownMenuLabel>Ações</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem className="flex justify-between">
+                    <div>Editar</div>
+                    <FaRegEdit size={"1.2rem"} />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleDeleteClick}
+                    className="flex justify-between text-red-500 hover:text-red-700"
+                  >
+                    <div>Deletar</div>
+                    <FaRegTrashCan />
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>{" "}
           </div>
           <div className="flex flex-row justify-between overflow-hidden gap-4">
             {totalCovers.map((cover, index) =>

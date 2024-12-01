@@ -73,7 +73,8 @@ const GameDetailsSmall = ({
           <Image
             src={cover}
             layout="responsive"
-            className="rounded-sm max-w-48"
+            className="rounded-sm max-w-48 h-full"
+            alt="cover"
           />
           <Link
             href={

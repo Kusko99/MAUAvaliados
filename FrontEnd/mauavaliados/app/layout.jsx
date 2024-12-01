@@ -19,13 +19,15 @@ export default function RootLayout({ children }) {
       className
       localization={ptBR}
       appearance={{
+        layout: {
+          unsafe_disableDevelopmentModeWarnings: true,
+        },
         baseTheme: dark,
         variables: {
           fontSize: "16px",
         },
       }}
     >
-      
       <html lang="en">
         <body>
           <SignedOut></SignedOut>

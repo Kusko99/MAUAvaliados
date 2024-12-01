@@ -3,9 +3,12 @@ from connector import db, init_db
 from barramento import barramento
 from threading import Thread
 import os, sys
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 
+CORS(app, origins="http://localhost:3000", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"], allow_headers=["Content-Type", "Authorization"])
 # def consumer():
 #     try:
 #         print("Hello")
