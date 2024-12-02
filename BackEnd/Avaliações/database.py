@@ -36,6 +36,23 @@ class AvaliacaoDB :
             return {"avaliações": resp}
         except Exception as e:
             return {"error": f"Erro ao buscar avaliação: {str(e)}"}
+    
+    def update_aval(self, id: str, data: dict):
+        "Função para atualizar uma avaliação"
+        try:
+            aval = db.session.query(Aval).filter_by(id=id).first()
+            if not aval:
+                return {"error": "Avaliação não encontrada."}
+            
+            for key, value in data.items():
+                if hasattr(aval, key):
+                    setattr(aval, key, value)
+
+            db.session.commit()
+            return aval.to_dict()
+        except Exception as e:
+            db.session.rollback()
+            return {"error": f"Erro ao atualizar avaliação: {str(e)}"}
 
     def delete_aval(self, id: str):
         "função de deletar avaliação"

@@ -25,6 +25,16 @@ def get_aval_by_id_jogo(id_jogo:str):
     data = AvaliacaoController().get_aval_by_id_jogo(id_jogo)
     return data, 200
 
+@avaliacao_routes.route("/aval/<id>", methods=["PUT"])
+def update_aval(id:str):
+    "Rota para atualizar uma avaliação"
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"message": "No input data provided"}), 400
+    data = AvaliacaoController().update_aval(id, data)
+    return data
+
 @avaliacao_routes.route("/aval/<id>", methods=["DELETE"])
 def delete_aval(id:str):
     "Rota para deletar uma avaliação"
