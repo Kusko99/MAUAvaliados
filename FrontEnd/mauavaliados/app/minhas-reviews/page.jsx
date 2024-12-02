@@ -89,8 +89,7 @@ export default function MinhasReviews() {
                   review={review.aval_escrita}
                   game_name={"The Witcher 3: Wild Hunt"}
                   nota={review.aval_nota}
-                  likes={20}
-                  data={"22/10/2024"}
+                  data={"04/12/2024"}
                   id={review.id}
                   onDelete={handleDelete}
                 />

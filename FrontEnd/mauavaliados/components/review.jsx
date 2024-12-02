@@ -32,7 +32,6 @@ const Review = ({ review, nota, user, avatar }) => {
               onClick={handleLikeClick}
               className="cursor-pointer flex flex-row gap-2 items-center"
             >
-              <p className="font-bold">10</p>
               {isLiked ? (
                 <FaHeart className="text-[#8C00FF] transition duration-300 ease-in-out transform scale-125" />
               ) : (
@@ -47,7 +46,7 @@ const Review = ({ review, nota, user, avatar }) => {
         </div>
         <p className="line-clamp-3 text-start">{review}</p>
         <div className="flex flex-row w-full justify-between items-center">
-          <p className="text-sm text-start">Data: 22/10/2024</p>
+          <p className="text-sm text-start">Data: 04/12/2024</p>
           <ModalReview review={review} nota={nota} />
         </div>
       </div>
