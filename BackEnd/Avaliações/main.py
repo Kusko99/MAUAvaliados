@@ -8,24 +8,26 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, origins="http://localhost:3000", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"], allow_headers=["Content-Type", "Authorization"])
-# CORS(
-#     app,
-#     resources={r"/*": {"origins": "http://localhost:3000"}},
-#     supports_credentials=True, 
-#     expose_headers=["Content-Type", "Authorization"],  
-# )
 
-# CORS(app)
+CORS(
+    app,
+    resources={r"/*": {"origins": "http://localhost:3000"}},
+    supports_credentials=True,  # Se você usar cookies ou autenticação
+    expose_headers=["Content-Type", "Authorization"],  # Exponha cabeçalhos necessários
+)
 
-# def consumer():
-#     try:
-#         print("Hello")
-#         barramento().recive()
-#     except KeyboardInterrupt:
-#         try:
-#             sys.exit(0)
-#         except SystemExit:
-#             os._exit(0)
+
+CORS(app)
+
+def consumer():
+    try:
+        print("Hello")
+        barramento().recive()
+    except KeyboardInterrupt:
+         try:
+             sys.exit(0)
+         except SystemExit:
+             os._exit(0)
 
 def main():
     #Importando as rotas
@@ -36,8 +38,8 @@ def main():
     
 
 if __name__ == '__main__':
-    # consumer_thread = Thread(target=consumer)
-    # consumer_thread.start()
+    consumer_thread = Thread(target=consumer)
+    consumer_thread.start()
 
     main()
     app.run(port=6051, debug=True)

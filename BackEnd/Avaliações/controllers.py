@@ -16,7 +16,7 @@ class AvaliacaoController:
             aval_escrita=aval["aval_escrita"],
             aval_nota=aval["aval_nota"],
         )
-        # barramento().publish("AvaliacaoCreated", db_aval.to_dict())
+        barramento().publish("AvaliacaoCreated", db_aval.to_dict())
         aval = AvaliacaoDB().create_aval(db_aval)
         return aval
     
@@ -29,6 +29,12 @@ class AvaliacaoController:
         "Controller de puxar uma avaliação pelo id do jogo"
         aval = AvaliacaoDB().get_aval_by_id_jogo(id_jogo)
         return aval
+    
+    def update_aval(self, id: str, aval_data: dict) -> dict:
+        "Controller de atualização de uma avaliação"
+        update_aval = AvaliacaoDB().update_aval(id, aval_data)
+        barramento().publish("AvalUpdate", update_aval)
+        return update_aval
     
     def delete_aval(self, id: str) -> dict:
         "Controller de exclusão de uma avaliação"
