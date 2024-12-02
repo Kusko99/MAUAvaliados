@@ -8,6 +8,7 @@ import {
 
 import Image from "next/image";
 import the_witcher from "../public/the_witcher.png";
+import stray from "../public/stray.jpg";
 import morty from "../public/morty.jpg";
 import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -30,7 +31,7 @@ const ModalReview = ({ show, handleClose, review, nota }) => {
         <DialogHeader className="">
           <Image
             src={the_witcher}
-            className="w-full h-auto object-cover"
+            className="w-full h-48 object-cover"
             alt="cover"
           />
         </DialogHeader>

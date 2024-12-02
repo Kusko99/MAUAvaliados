@@ -4,6 +4,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import TooltipLista from "@/components/tooltipLista";
 import super_smash from "../public/super_smash.png";
 import the_witcher from "../public/the_witcher_cover.png";
+import stray from "../public/stray.jpg";
 import tlou from "../public/tlou.png";
 import Image from "next/image";
 import Link from "next/link";

@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import the_witcher from "../../public/the_witcher.png";
 import the_witcher_cover from "../../public/the_witcher_cover.png";
+import stray from "../../public/stray.jpg";
 import Review from "@/components/review";
 import GameDetails from "@/components/gameDetails";
 import GameReviews from "@/components/gameReviews";
@@ -20,12 +21,12 @@ export default function Game() {
     <SignedIn>
       <SidebarProvider>
         <AppSidebar />
-        <div className="relative z-10">
+        <div className="relative w-full z-10">
           <Navbar />
           <div className="relative w-full">
             <Image
               src={the_witcher}
-              className="w-full h-auto object-cover z-0"
+              className="w-full lg:h-[80vh] object-cover z-0"
               alt="cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>
