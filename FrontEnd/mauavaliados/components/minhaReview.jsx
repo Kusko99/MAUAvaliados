@@ -17,7 +17,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useToast } from "@/hooks/use-toast"; // Importing the custom toast hook
+import { useToast } from "@/hooks/use-toast";
+import { UpdateReview } from "./updateReview";
 
 const MinhaReview = ({
   review,
@@ -50,12 +51,17 @@ const MinhaReview = ({
       });
     }
   };
+  console.log(id);
 
   return (
     <div className="flex flex-row gap-2">
       <div className="hidden md:block rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
         <div className="group relative w-40 h-full rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
-          <Image src={cover} className="absolute w-full object-cover h-full" />
+          <Image
+            src={cover}
+            className="absolute w-full object-cover h-full"
+            alt="cover"
+          />
         </div>
       </div>
       <div className="rounded-sm p-[1.2px] w-full transition bg-gradient-to-t hover:from-[#8c00ff] hover:to-[#2a0747]">
@@ -97,7 +103,7 @@ const MinhaReview = ({
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="flex justify-between">
-                      <div>Editar</div>
+                      <UpdateReview />
                       <FaRegEdit size={"1.2rem"} />
                     </DropdownMenuItem>
                     <DropdownMenuItem

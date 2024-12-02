@@ -11,8 +11,8 @@ CORS(app, origins="http://localhost:3000", methods=["GET", "POST", "PUT", "DELET
 # CORS(
 #     app,
 #     resources={r"/*": {"origins": "http://localhost:3000"}},
-#     supports_credentials=True,  # Se você usar cookies ou autenticação
-#     expose_headers=["Content-Type", "Authorization"],  # Exponha cabeçalhos necessários
+#     supports_credentials=True, 
+#     expose_headers=["Content-Type", "Authorization"],  
 # )
 
 # CORS(app)

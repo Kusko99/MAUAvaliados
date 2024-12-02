@@ -92,7 +92,7 @@ export default function MinhasReviews() {
                   likes={20}
                   data={"22/10/2024"}
                   id={review.id}
-                  onDelete={handleDelete} // Pass the handleDelete function directly
+                  onDelete={handleDelete}
                 />
               ))}
             </div>
