@@ -47,7 +47,6 @@ const ModalReview = ({ review, game_name, nota, likes, data, cover }) => {
                   onClick={handleLikeClick}
                   className="cursor-pointer flex flex-row gap-2 items-center"
                 >
-                  <p className="font-bold">{likes}</p>
                   {isLiked ? (
                     <FaHeart className="text-[#8C00FF] transition duration-300 ease-in-out transform scale-125" />
                   ) : (

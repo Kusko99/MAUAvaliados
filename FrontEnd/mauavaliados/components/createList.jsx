@@ -48,12 +48,12 @@ export function CreateList() {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button className="bg-[#8c00ff] text-white rounded-sm hover:bg-[#8c00ff] hover:brightness-90 transition hover:text-white font-bold gap-2 text-md">
-          Adicionar review
+          Nova lista
         </Button>
       </DrawerTrigger>
       <DrawerContent className="bg-[#1d1d1d] border-0 pb-4">
         <DrawerHeader className="text-left">
-          <DrawerTitle>Minha Review</DrawerTitle>
+          <DrawerTitle>Nova lista</DrawerTitle>
         </DrawerHeader>
         <ListForm className="px-4" />
       </DrawerContent>

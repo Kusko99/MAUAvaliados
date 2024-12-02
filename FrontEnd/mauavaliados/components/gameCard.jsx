@@ -15,9 +15,9 @@ const GameCard = ({ cover }) => {
           </div>
           <Link href={"/game"} className="h-full">
             <div className="relative font-bold h-full items-end flex">
-              <div className="bg-black/60 w-full h-12 p-2 items-center flex">
+              <p className="bg-black/60 w-full h-12 p-2 items-center flex overflow-hidden whitespace-nowrap ">
                 The Witcher 3: Wild Hunt
-              </div>
+              </p>
             </div>
           </Link>
         </div>

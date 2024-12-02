@@ -8,6 +8,7 @@ import {
 
 import Image from "next/image";
 import the_witcher from "../public/the_witcher.png";
+import stray from "../public/stray.jpg";
 import morty from "../public/morty.jpg";
 import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -30,7 +31,7 @@ const ModalReview = ({ show, handleClose, review, nota }) => {
         <DialogHeader className="">
           <Image
             src={the_witcher}
-            className="w-full h-auto object-cover"
+            className="w-full h-48 object-cover"
             alt="cover"
           />
         </DialogHeader>
@@ -51,7 +52,6 @@ const ModalReview = ({ show, handleClose, review, nota }) => {
                   onClick={handleLikeClick}
                   className="cursor-pointer flex flex-row gap-2 items-center"
                 >
-                  <p className="font-bold">10</p>
                   {isLiked ? (
                     <FaHeart className="text-[#8C00FF] transition duration-300 ease-in-out transform scale-125" />
                   ) : (
