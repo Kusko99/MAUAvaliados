@@ -52,6 +52,11 @@ class RecomendaController:
         retorno = dumps(saida)
         return retorno
     
+    def delete_aval(self, body):
+        retorno = RecomendaDB().delete_aval(body)
+        return dumps(retorno)
+
+    
 
 
 

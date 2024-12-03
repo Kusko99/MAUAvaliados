@@ -40,5 +40,9 @@ class barramento:
             RecomendaController().create_aval(event.body)
         elif event.type == "UserDeleted":
             RecomendaController().delete_usuario(event.body)
+        elif event.type == "AvaliaçãoDeleted":
+            RecomendaController().delete_aval(event.body)
+        elif event.type == "AvalUpdate":
+            RecomendaController().edit_aval(event.body)
         print(event)
 

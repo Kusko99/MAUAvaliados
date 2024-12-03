@@ -74,7 +74,7 @@ class RecomendaDB:
     password = "yTLZZOMbu_IzqJFwlBvtXMkp6FUvsFaY_hobmdZft_E"
 
 conn = RecomendaDB()
-print(conn.get_recomendacao_by_id(1))
+
 
 
 
