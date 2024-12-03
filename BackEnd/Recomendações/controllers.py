@@ -7,13 +7,14 @@ class RecomendaController:
 
     def get_recomendacao_by_id(self, id: str) -> dict:
         "Controller para conseguir uma recomendação baseda no id do user"
-        jogos = RecomendaDB().get_recomendacao_by_id(id)
-        n =1
         dic ={}
-        for jogo in jogos:
-            chave = f"jogo {n}"
-            dic[chave]=jogo
-            n+=1
+        recente = RecomendaDB().get_jogos_data()
+        dic["data"] = recente
+        avaliado = RecomendaDB().get_jogos_nota()
+        dic["nota"] = avaliado
+        recomenda = RecomendaDB().get_recomendacao_by_id(id)
+        dic["recomendacao"] = recomenda
+
         recomendacao = dumps(dic)
         return recomendacao
     

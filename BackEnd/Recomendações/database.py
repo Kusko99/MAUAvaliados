@@ -17,13 +17,44 @@ class RecomendaDB:
     def get_recomendacao_by_id(self,id):
         jogos = []
         try:
-            result = self.query(f'''MATCH q=(l)-[:JOGOU]->(n)-[a]->(p)<-[]-(b) WHERE l.id="{id}"  RETURN b LIMIT 30''')
+            #q=(l)-[:JOGOU]->
+            result = self.query(f'''MATCH q=(l)-[:JOGOU]->(n)-[:Do_Genero]->(p)<-[:Do_Genero]-(b) WHERE l.id={id}  RETURN b LIMIT 15''')
             for record in result:
-                resultado = dumps(record.data()["b"])
+                saida = record.data()["b"]
+                del saida['criado_em']
+                resultado = dumps(saida)
                 jogos.append(resultado)
             return jogos
         except Exception as e:
             return {"error": f"Erro ao coletar recomendacoes: {str(e)}"}
+    
+    def get_jogos_nota(self):
+        jogos = []
+        try:
+            #q=(l)-[:JOGOU]->
+            result = self.query(f'''MATCH (a:Jogos) WHERE a.`notas.total_rating` IS NOT NULL  ORDER BY a.`notas.total_rating` DESC RETURN a LIMIT 15;''')
+            for record in result:
+                saida = record.data()["a"]
+                del saida['criado_em']
+                resultado = dumps(saida)
+                jogos.append(resultado)
+            return jogos
+        except Exception as e:
+            return {"error": f"Erro ao coletar jogos: {str(e)}"}
+        
+    def get_jogos_data(self):
+        jogos = []
+        try:
+            #q=(l)-[:JOGOU]->
+            result = self.query(f'''MATCH (a:Jogos) WHERE a.`criado_em` IS NOT NULL  ORDER BY a.`criado_em` DESC RETURN a LIMIT 15;''')
+            for record in result:
+                saida = record.data()["a"]
+                del saida['criado_em']
+                resultado = dumps(saida)
+                jogos.append(resultado)
+            return jogos
+        except Exception as e:
+            return {"error": f"Erro ao coletar jogos: {str(e)}"}
     
     def create_usuario(self, user):
         entrada1 = 'CREATE (:person {'
@@ -74,6 +105,9 @@ class RecomendaDB:
     password = "yTLZZOMbu_IzqJFwlBvtXMkp6FUvsFaY_hobmdZft_E"
 
 conn = RecomendaDB()
+# porta = conn.get_jogos_data()
+# for jogo in porta:
+#     print(jogo)
 
 
 
