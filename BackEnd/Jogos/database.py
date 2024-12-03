@@ -4,7 +4,7 @@ from auth import get_token
 import requests
 import os
 import time
-
+from pymongo import MongoClient
 
 
 class DBGameAPI:
@@ -15,7 +15,22 @@ class DBGameAPI:
         self.IGDB_CLIENT_ID = os.getenv('IGDB_CLIENT_ID')
         self.IGDB_CLIENT_SECRET = os.getenv('IGDB_CLIENT_SECRET')
         self.GRANT_TYPE = os.getenv('GRANT_TYPE')
-        self.access_token = get_token()
+        self.client = MongoClient("mongodb+srv://pimauavaliados:coxinha123@clustermauavaliados.9zwib.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMauavaliados")
+        self.db = self.client["db_mauavaliados"]
+        self.collection = self.db["jogos_mauavaliados"]
+
+    def get_game_by_id(self, game_id):
+        try:
+            game_id = int(game_id)
+            game = self.collection.find_one({"id": game_id})
+            if game:
+                game["_id"] = str(game["_id"])
+                return {"jogo" : game}
+            else:
+                return {"error": "Jogo nao encontrado"}
+        except Exception as e:
+            return {"error": f"Erro ao buscar jogo: {str(e)}"}
+
 
     def get_games(self):
         url =  "https://api.igdb.com/v4/games"
