@@ -52,4 +52,5 @@ def _check_and_refresh_token():
 def get_token():
     "Retorna o access token"
     _check_and_refresh_token()
+    print(access_token)
     return access_token
