@@ -18,7 +18,7 @@ class RecomendaDB:
         jogos = []
         try:
             #q=(l)-[:JOGOU]->
-            result = self.query(f'''MATCH q=(l)-[:JOGOU]->(n)-[:Do_Genero]->(p)<-[:Do_Genero]-(b) WHERE l.id={id}  RETURN b LIMIT 15''')
+            result = self.query(f'''MATCH q=(l)-[:JOGOU]->(n)-[:Do_Genero]->(p)<-[:Do_Genero]-(b) WHERE l.id="{id}"  RETURN b LIMIT 15''')
             for record in result:
                 saida = record.data()["b"]
                 del saida['criado_em']
