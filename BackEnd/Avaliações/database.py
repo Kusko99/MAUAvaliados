@@ -63,8 +63,8 @@ class AvaliacaoDB :
 
             db.session.delete(aval)
             db.session.commit()
-            return {"message": "Usuário deletado com sucesso!"}
+            return {"message": "Avaliação deletada com sucesso!"}
         except Exception as e:
             db.session.rollback()
-            return {"error": f"Erro ao deletar avaliações: {str(e)}"}
+            return {"error": f"Erro ao deletar avaliação: {str(e)}"}
             
