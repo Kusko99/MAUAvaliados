@@ -24,11 +24,10 @@ import { FaTrophy } from "react-icons/fa";
 import { useToast } from "../hooks/use-toast";
 import { useAuth } from "@clerk/nextjs";
 
-export function UpdateReview() {
+export function UpdateReview({ id }) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { toast } = useToast();
-  const { userId } = useAuth();
 
   const ReviewForm = ({ className }) => {
     const [rating, setRating] = React.useState("");
@@ -46,8 +45,6 @@ export function UpdateReview() {
       }
 
       const resAvaliacao = {
-        id_user: userId,
-        id_jogo: "1",
         aval_nota: parseFloat(rating),
         aval_escrita: review,
       };
@@ -55,23 +52,18 @@ export function UpdateReview() {
       try {
         setIsSubmitting(true);
 
-        const response = await fetch(
-          `http://127.0.0.1:6051/aval/${resAvaliacao.id_jogo}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(resAvaliacao),
-          }
-        );
+        const response = await fetch(`http://127.0.0.1:6051/aval/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(resAvaliacao),
+        });
 
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(`Erro na resposta: ${errorData.message}`);
         }
-
-        const data = await response.json();
 
         toast({
           variant: "roxo",

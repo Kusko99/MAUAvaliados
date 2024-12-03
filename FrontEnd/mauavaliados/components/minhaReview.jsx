@@ -51,7 +51,7 @@ const MinhaReview = ({
       });
     }
   };
-  console.log(id);
+  // console.log(id);
 
   return (
     <div className="flex flex-row gap-2">
@@ -103,7 +103,7 @@ const MinhaReview = ({
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="flex justify-between">
-                      <UpdateReview />
+                      <UpdateReview id={id}/>
                       <FaRegEdit size={"1.2rem"} />
                     </DropdownMenuItem>
                     <DropdownMenuItem
