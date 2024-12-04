@@ -10,6 +10,11 @@ import TooltipLista from "@/components/tooltipLista";
 import GameCardList from "@/components/gameCardList";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import the_witcher_cover from "../../public/the_witcher_cover.png";
+import tlou from "../../public/tlou.png";
+import super_smash from "../../public/super_smash.png";
+import stray_cover from "../../public/stray_cover.webp";
+import anel_do_velho from "../../public/anel_do_velho.jpg";
 
 export default function DetalhesLista() {
   return (
@@ -46,32 +51,34 @@ export default function DetalhesLista() {
               <div className="flex flex-row justify-between mx-5 md:mx-12">
                 <p className="text-2xl font-bold">Jogos Top!!!</p>
                 <div className="bg-[#8c00ff]/50 text-white font-bold flex items-center px-2 rounded-sm cursor-default">
-                  10 jogos
+                  5 jogos
                 </div>
               </div>
               <p className="mx-5 md:mx-12 mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Excepturi cumque, nam quia modi sapiente ipsam optio temporibus
-                doloremque dolorem cupiditate iure error ipsum tempora nihil
-                laborum. Ducimus enim ab error! Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas asperiores, dicta vitae animi
-                totam dignissimos quae facere perferendis ab quaerat a ullam
-                earum perspiciatis mollitia qui eveniet in eum dolorem.
+                Clássicos Imperdíveis: Aventuras e Emoções reúne cinco jogos
+                icônicos que oferecem experiências únicas e inesquecíveis. De
+                batalhas intensas e narrativas emocionantes, como em The Witcher
+                3: Wild Hunt, Elden Ring e The Last of Us, a aventuras criativas
+                e tocantes, como em Stray, até confrontos frenéticos e
+                divertidos com amigos em Super Smash Bros. Ultimate. Esta
+                seleção celebra o melhor dos videogames, combinando mundos
+                fascinantes, histórias marcantes e jogabilidade memorável,
+                perfeita para quem busca explorar o que há de mais impactante no
+                universo gamer.
               </p>
               <div className="flex flex-col">
                 <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 mx-5 md:mx-12 my-12 justify-between gap-4 place-items-center">
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
-                  <GameCardList />
+                  <GameCardList
+                    cover={the_witcher_cover}
+                    title={"The Witcher 3: Wild Hunt"}
+                  />
+                  <GameCardList cover={tlou} title={"The Last of Us"} />
+                  <GameCardList cover={anel_do_velho} title={"Elden Ring"} />
+                  <GameCardList cover={stray_cover} title={"Stray"} />
+                  <GameCardList
+                    cover={super_smash}
+                    title={"Super Smash Bros"}
+                  />
                 </div>
               </div>
             </div>

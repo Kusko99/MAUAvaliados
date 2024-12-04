@@ -24,11 +24,6 @@ export default function Listas() {
           </div>
           <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12 mt-4">
             <Lista />
-            <Lista />
-            <Lista />
-            <Lista />
-            <Lista />
-            <Lista />
           </div>
         </div>
       </div>

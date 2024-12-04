@@ -59,6 +59,8 @@ const MinhaReview = ({
         <div className="group relative w-40 h-full rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
           <Image
             src={cover}
+            width={100}
+            height={200}
             className="absolute w-full object-cover h-full"
             alt="cover"
           />
@@ -103,7 +105,7 @@ const MinhaReview = ({
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="flex justify-between">
-                      <UpdateReview id={id}/>
+                      <UpdateReview id={id} />
                       <FaRegEdit size={"1.2rem"} />
                     </DropdownMenuItem>
                     <DropdownMenuItem

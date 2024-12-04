@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import Review from "./review";
 import Morty from "../public/morty.jpg";
+import PlaceholderNoItems from "./placeholderNoItems";
 
 async function fetchUsuario(userId) {
   try {
@@ -116,40 +117,48 @@ export default function GameReviews({ gameId }) {
 
   return (
     <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 mx-5 md:mx-12 mb-12">
-      {minhasReviews.map((review) => (
-        <Review
-          key={review.id}
-          review={review.aval_escrita}
-          nota={review.aval_nota}
-          user={
-            user.firstName && user.lastName
-              ? `${user.firstName} ${user.lastName}`
-              : user.emailAddresses[0]?.emailAddress || "Usuário Desconhecido"
-          }
-          avatar={user.imageUrl || Morty}
-        />
-      ))}
-
-      {outrasReviews.map((review) => {
-        const reviewUser = userMap[review.id_user] || {};
-
-        const imageUrl = reviewUser.imageUrl || Morty;
-
-        const userName =
-          reviewUser.firstName && reviewUser.lastName
-            ? `${reviewUser.firstName} ${reviewUser.lastName}`
-            : reviewUser.emailAdress || "Usuário Desconhecido";
-
-        return (
+      {minhasReviews.length === 0 ? (
+        <PlaceholderNoItems texto="Você ainda não fez nenhuma avaliação." />
+      ) : (
+        minhasReviews.map((review) => (
           <Review
             key={review.id}
             review={review.aval_escrita}
             nota={review.aval_nota}
-            user={userName}
-            avatar={imageUrl}
+            user={
+              user.firstName && user.lastName
+                ? `${user.firstName} ${user.lastName}`
+                : user.emailAddresses[0]?.emailAddress || "Usuário Desconhecido"
+            }
+            avatar={user.imageUrl || Morty}
           />
-        );
-      })}
+        ))
+      )}
+
+      {outrasReviews.length === 0 ? (
+        <PlaceholderNoItems texto="Nenhuma avaliação de outros usuários." />
+      ) : (
+        outrasReviews.map((review) => {
+          const reviewUser = userMap[review.id_user] || {};
+
+          const imageUrl = reviewUser.imageUrl || Morty;
+
+          const userName =
+            reviewUser.firstName && reviewUser.lastName
+              ? `${reviewUser.firstName} ${reviewUser.lastName}`
+              : reviewUser.emailAdress || "Usuário Desconhecido";
+
+          return (
+            <Review
+              key={review.id}
+              review={review.aval_escrita}
+              nota={review.aval_nota}
+              user={userName}
+              avatar={imageUrl}
+            />
+          );
+        })
+      )}
     </div>
   );
 }

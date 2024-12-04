@@ -26,7 +26,7 @@ class UserController:
                 else "Sem Email"
             ),
         )
-        # barramento().publish("UserCreated", db_user.to_dict())
+        barramento().publish("UserCreated", db_user.to_dict())
         user = UserDB().create_user(db_user)
         return user
 

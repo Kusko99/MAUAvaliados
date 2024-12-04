@@ -5,9 +5,41 @@ import { useUser, SignedIn } from "@clerk/nextjs";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import MinhaReview from "@/components/minhaReview";
-import the_witcher_cover from "../../public/the_witcher_cover.png";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import the_witcher_cover from "../../public/the_witcher_cover.png";
+
+async function fetchCover(initialUrl) {
+  try {
+    const id = initialUrl.split("/").pop().replace(".jpg", "");
+    const finalUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${id}.jpg`;
+
+    const response = await fetch(finalUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch cover from ${finalUrl}`);
+    }
+
+    const imageBlob = await response.blob();
+    return URL.createObjectURL(imageBlob);
+  } catch (error) {
+    console.error("Error fetching cover:", error);
+    return null;
+  }
+}
+
+async function fetchGame(gameId) {
+  try {
+    const res = await fetch(`http://127.0.0.1:5051/get/game/${gameId}`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch game data");
+    }
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error("Error fetching game:", err);
+    return null;
+  }
+}
 
 async function fetchReviews(userId) {
   try {
@@ -36,6 +68,8 @@ async function fetchReviews(userId) {
 export default function MinhasReviews() {
   const { user } = useUser();
   const [reviews, setReviews] = useState([]);
+  const [gameData, setGameData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user?.id) {
@@ -43,7 +77,27 @@ export default function MinhasReviews() {
     }
   }, [user?.id]);
 
-  // Function to handle review deletion
+  useEffect(() => {
+    // Fetch game data based on the id_jogo from the first review (assuming all reviews are for the same game)
+    if (reviews.length > 0) {
+      const gameId = reviews[0].id_jogo; // Get the game ID from the first review
+      fetchGame(gameId).then((data) => {
+        setGameData(data);
+        setLoading(false);
+
+        // Fetch cover image once game data is loaded
+        if (data?.jogo?.capa) {
+          fetchCover(data.jogo.capa).then((cover) => {
+            setGameData((prevData) => ({
+              ...prevData,
+              cover: cover,
+            }));
+          });
+        }
+      });
+    }
+  }, [reviews]);
+
   const handleDelete = async (reviewId) => {
     try {
       const response = await fetch(`http://127.0.0.1:6051/aval/${reviewId}`, {
@@ -62,12 +116,25 @@ export default function MinhasReviews() {
       setReviews((prevReviews) =>
         prevReviews.filter((review) => review.id !== reviewId)
       );
-
-      fetchReviews(user.id).then((data) => setReviews(data));
     } catch (error) {
       console.error("Error deleting review:", error);
     }
   };
+
+  if (loading) {
+    return (
+      <SignedIn>
+        <SidebarProvider>
+          <AppSidebar />
+          <Navbar />
+          <div className="flex justify-center items-center h-screen">
+            <p>Loading...</p>
+          </div>
+        </SidebarProvider>
+        <Footer />
+      </SignedIn>
+    );
+  }
 
   return (
     <SignedIn>
@@ -85,9 +152,9 @@ export default function MinhasReviews() {
               {reviews.map((review) => (
                 <MinhaReview
                   key={review.id}
-                  cover={the_witcher_cover}
+                  cover={gameData?.cover || the_witcher_cover}
                   review={review.aval_escrita}
-                  game_name={"The Witcher 3: Wild Hunt"}
+                  game_name={gameData?.jogo?.nome || "Jogo Desconhecido"}
                   nota={review.aval_nota}
                   data={"04/12/2024"}
                   id={review.id}
