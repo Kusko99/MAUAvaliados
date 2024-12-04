@@ -4,6 +4,9 @@ class GameAPI:
     def __init__(self):
         pass
     
+    def get_game_by_id(self, game_id) -> dict:
+        return DBGameAPI().get_game_by_id(game_id)
+
     def get_games(self) -> dict:
         games = DBGameAPI().get_games()
         dict_games = {}

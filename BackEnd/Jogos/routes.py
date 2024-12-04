@@ -10,6 +10,10 @@ games_routes = Blueprint('games_routes', __name__)
 def hello():
     return "Bem-vindo ao serviço de jogos"
 
+@games_routes.route("/get/game/<id>", methods = ["GET"])
+def get_game_by_id(id):
+    return GameAPI().get_game_by_id(id)
+
 @games_routes.route("/games/games", methods = ["GET"])
 def get_games():
     inicio = time()
