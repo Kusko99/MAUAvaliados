@@ -42,4 +42,4 @@ if __name__ == '__main__':
     # consumer_thread.start()
 
     main()
-    app.run(port=6051, debug=True)
+    app.run(port=6051)
