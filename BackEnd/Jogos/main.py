@@ -3,8 +3,11 @@ from auth import get_token
 from barramento import barramento
 from threading import Thread
 import os, sys
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app, origins="http://localhost:3000", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"], allow_headers=["Content-Type", "Authorization"])
 
 # def consumer():
 #     try:
@@ -28,4 +31,4 @@ if __name__ == '__main__':
     # consumer_thread.start()
 
     main()  
-    app.run(port=5000) 
+    app.run(port=5051) 

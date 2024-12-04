@@ -24,7 +24,7 @@ import { FaTrophy } from "react-icons/fa";
 import { useToast } from "../hooks/use-toast";
 import { useAuth } from "@clerk/nextjs";
 
-export function AddReview() {
+export function AddReview({id_jogo}) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const { toast } = useToast();
@@ -47,7 +47,7 @@ export function AddReview() {
 
       const resAvaliacao = {
         id_user: userId,
-        id_jogo: "1",
+        id_jogo: id_jogo,
         aval_nota: parseFloat(rating),
         aval_escrita: review,
       };

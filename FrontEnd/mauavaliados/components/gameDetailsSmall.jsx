@@ -22,6 +22,8 @@ const GameDetailsSmall = ({
   desenvolvedora,
   distribuidora,
   generos,
+  plataformas,
+  trailer,
 }) => {
   return (
     <div className="flex flex-col mx-5  mt-24 gap-4 items-center justify-center">
@@ -71,18 +73,14 @@ const GameDetailsSmall = ({
         </div>
         <div className="flex flex-col max-w-48">
           <Image
+            width={100}
+            height={200}
             src={cover}
             layout="responsive"
             className="rounded-sm max-w-48 h-full"
             alt="cover"
           />
-          <Link
-            href={
-              "https://www.youtube.com/watch?v=c0i88t0Kacs&pp=ygUVdGhlIHdpdGNoZXIgMyB0cmFpbGVy"
-            }
-            className="w-full"
-            target="_blank"
-          >
+          <Link href={trailer} className="w-full" target="_blank">
             <Button
               size="sm"
               className="bg-[#2d2d2d] text-[#FFAE00] mt-1 py-4 rounded-sm hover:bg-[#FFAE00] hover:text-black font-bold gap-2 w-full"
@@ -117,25 +115,15 @@ const GameDetailsSmall = ({
           ))}
         </div>
         <p className="font-semibold pt-3">Onde jogar</p>
-        <div className="flex flex-row gap-8 pt-2">
-          <WhereToPlay tooltipContent={<p>Steam</p>}>
-            <FaSteam
-              size={"2em"}
-              className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-            />
-          </WhereToPlay>
-          <WhereToPlay tooltipContent={<p>Playstation</p>}>
-            <FaPlaystation
-              size={"2em"}
-              className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-            />
-          </WhereToPlay>
-          <WhereToPlay tooltipContent={<p>Xbox</p>}>
-            <FaXbox
-              size={"2em"}
-              className="hover:scale-110 transition ease-in-out cursor-pointer hover:text-[#FFAE00]"
-            />
-          </WhereToPlay>
+        <div className="flex flex-wrap justify-evenly gap-2 pt-2">
+          {plataformas.map((plataforma, index) => (
+            <div
+              key={index}
+              className="w-fit bg-[#2d2d2d] px-2 py-1 flex items-center rounded-sm text-[#FFae00] hover:text-[#1d1d1d] hover:bg-[#FFae00] transition duration-100 cursor-pointer"
+            >
+              {plataforma}
+            </div>
+          ))}
         </div>
       </div>
 

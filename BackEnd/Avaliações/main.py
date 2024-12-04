@@ -19,15 +19,15 @@ CORS(app, origins="http://localhost:3000", methods=["GET", "POST", "PUT", "DELET
 
 # CORS(app)
 
-# def consumer():
-#     try:
-#         print("Hello")
-#         barramento().recive()
-#     except KeyboardInterrupt:
-#          try:
-#              sys.exit(0)
-#          except SystemExit:
-#              os._exit(0)
+def consumer():
+    try:
+        print("Hello")
+        barramento().recive()
+    except KeyboardInterrupt:
+         try:
+             sys.exit(0)
+         except SystemExit:
+             os._exit(0)
 
 def main():
     #Importando as rotas
@@ -38,8 +38,8 @@ def main():
     
 
 if __name__ == '__main__':
-    # consumer_thread = Thread(target=consumer)
-    # consumer_thread.start()
+    consumer_thread = Thread(target=consumer)
+    consumer_thread.start()
 
     main()
     app.run(port=6051)

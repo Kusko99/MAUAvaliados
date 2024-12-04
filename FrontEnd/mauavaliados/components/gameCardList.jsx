@@ -3,12 +3,12 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import TooltipLista from "@/components/tooltipLista";
 import the_witcher_cover from "../public/the_witcher_cover.png";
 
-const GameCardList = ({ games }) => {
+const GameCardList = ({ games, cover, title }) => {
   return (
     <div className=" rounded-sm p-[2px] transition bg-gradient-to-tr hover:from-[#FFAE00] hover:to-[#2e240f]">
       <div className="group relative w-[230px] h-[346px] rounded-sm cursor-pointer drop-shadow-xl overflow-hidden">
         <Image
-          src={the_witcher_cover}
+          src={cover}
           className="absolute w-full object-cover h-full"
         />
         <div className="flex flex-col h-full">
@@ -22,7 +22,7 @@ const GameCardList = ({ games }) => {
           </div>
           <div className="relative font-bold h-full items-end flex">
             <div className="bg-black/60 w-full h-12 p-2 items-center flex">
-              The Witcher 3: Wild Hunt
+              {title}
             </div>
           </div>
         </div>

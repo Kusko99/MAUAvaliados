@@ -57,14 +57,6 @@ const AddToList = ({ children, isLeft, isRight, isDesktop }) => {
         >
           Jogos Top!!!
         </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={(checked) =>
-            handleCheckedChange(checked, setShowPanel, "Lista de desejo")
-          }
-        >
-          Lista de desejo
-        </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import the_witcher from "../public/the_witcher.png";
 import stray from "../public/stray.jpg";
+import banner1 from "../public/banner1.gif";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
@@ -23,7 +24,7 @@ export default function Home() {
           <Navbar />
           <div className="relative w-full">
             <Image
-              src={stray}
+              src={banner1}
               className="w-full lg:h-[80vh] object-cover z-0"
             />{" "}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1d1d1d] via-transparent to-transparent z-1"></div>

@@ -2,10 +2,7 @@
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import TooltipLista from "@/components/tooltipLista";
-import super_smash from "../public/super_smash.png";
-import the_witcher from "../public/the_witcher_cover.png";
 import stray from "../public/stray.jpg";
-import tlou from "../public/tlou.png";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -18,6 +15,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import the_witcher_cover from "../public/the_witcher_cover.png";
+import tlou from "../public/tlou.png";
+import super_smash from "../public/super_smash.png";
+import stray_cover from "../public/stray_cover.webp";
+import anel_do_velho from "../public/anel_do_velho.jpg";
 
 const Lista = ({}) => {
   const handleDeleteClick = () => {
@@ -37,16 +39,10 @@ const Lista = ({}) => {
 
   const covers = [
     super_smash,
-    the_witcher,
+    the_witcher_cover,
     tlou,
-    the_witcher,
-    super_smash,
-    the_witcher,
-    tlou,
-    the_witcher,
-    super_smash,
-    the_witcher,
-    tlou,
+    stray_cover,
+    anel_do_velho,
   ];
 
   // Add skeleton placeholders if covers length is less than 6
@@ -105,14 +101,15 @@ const Lista = ({}) => {
           </div>
           <div>
             <p className="line-clamp-2">
-              Descrição da lista - Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Qui nam doloremque numquam consequatur non culpa
-              maiores. Sint consequuntur, vero tenetur dolorem nulla id.
-              Provident assumenda laboriosam obcaecati dolore possimus
-              doloremque! Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Vitae quidem nobis facilis fugit reiciendis corrupti placeat
-              quis distinctio iure officiis excepturi beatae veniam culpa,
-              inventore provident ipsa dolor molestias quasi?
+              Clássicos Imperdíveis: Aventuras e Emoções reúne cinco jogos
+              icônicos que oferecem experiências únicas e inesquecíveis. De
+              batalhas intensas e narrativas emocionantes, como em The Witcher
+              3: Wild Hunt, Elden Ring e The Last of Us, a aventuras criativas e
+              tocantes, como em Stray, até confrontos frenéticos e divertidos
+              com amigos em Super Smash Bros. Ultimate. Esta seleção celebra o
+              melhor dos videogames, combinando mundos fascinantes, histórias
+              marcantes e jogabilidade memorável, perfeita para quem busca
+              explorar o que há de mais impactante no universo gamer.
             </p>
           </div>
         </div>

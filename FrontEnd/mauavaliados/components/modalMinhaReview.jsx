@@ -13,6 +13,7 @@ import { FaTrophy } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
+import banner from "../public/banner.gif";
 
 const ModalReview = ({ review, game_name, nota, likes, data, cover }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -29,7 +30,7 @@ const ModalReview = ({ review, game_name, nota, likes, data, cover }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[600px] bg-[#1d1d1d] border-0 p-0 overflow-hidden">
         <DialogHeader className="">
-          <Image src={the_witcher} className="w-full h-auto object-cover" />
+          <Image src={banner} className="w-full h-[20vh] object-cover" />
         </DialogHeader>
         <div className="flex flex-col p-4 gap-4">
           <div className="gap-4">

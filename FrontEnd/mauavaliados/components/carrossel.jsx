@@ -123,6 +123,7 @@ function Carrossel() {
                     cover={covers[game.id] || ""}
                     title={game.nome || `Jogo ${game.id}`}
                     className="items-center justify-center"
+                    id={game.id}
                   />
                 </div>
               </CarouselItem>
